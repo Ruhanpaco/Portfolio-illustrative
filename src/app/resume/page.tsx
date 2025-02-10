@@ -169,8 +169,9 @@ export default function Resume() {
           </motion.p>
 
           <p className="text-gray-700 leading-relaxed">
-             Hi, I&ldquo;m Ruhan Pacolli, a software developer from Kosovo with a passion for building web applications that solve real-world problems. My focus is on creating modern and scalable applications using technologies like JavaScript, React, and more.
+             Hi, I&apos;m Ruhan Pacolli, a software developer from Kosovo with a passion for building web applications that solve real-world problems. My focus is on creating modern and scalable applications using technologies like JavaScript, React, and more.
           </p>
+
 
 
           {/* Skills */}

@@ -1,4 +1,3 @@
-```markdown
 # Ruhan Pacolli Portfolio
 
 Welcome to my personal portfolio! This repository contains the code for my online portfolio website, built using **Next.js** and **Tailwind CSS**. This website showcases my skills, projects, and services. It is designed to be a professional yet modern, minimalistic online presence.
@@ -96,7 +95,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 Thank you for checking out my portfolio! Feel free to reach out if you have any questions or inquiries.
-
-```
 
 # Portfolio-illustrative

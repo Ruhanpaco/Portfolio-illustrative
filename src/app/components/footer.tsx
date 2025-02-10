@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { FaTwitter } from 'react-icons/fa'; // Twitter Icon from React Icons
 import { AiOutlineGithub } from 'react-icons/ai'; // GitHub Icon from React Icons
 
@@ -30,7 +31,7 @@ export default function Footer() {
             className="flex items-center gap-2 text-black bg-white border-2 border-black rounded-full px-4 py-2 hover:bg-gray-100 transition duration-300"
           >
             {/* Badge Icon */}
-            <img
+            <Image
               src="/assets/img/StripeClimateBadge.svg"
               alt="Stripe Climate Badge"
               className="w-6 h-6"

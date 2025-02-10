@@ -35,6 +35,8 @@ export default function Footer() {
               src="/assets/img/StripeClimateBadge.svg"
               alt="Stripe Climate Badge"
               className="w-6 h-6"
+              width={6}
+              height={6}
             />
             <span className="text-sm">I contribute to climate</span>
           </button>

@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import SocialMedia from './components/SocialMedia';
+import Image from 'next/image';
 import Skills from './components/Skills';
 import ByTheNumbers from './components/ByTheNumbers'; // Import the updated component
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
@@ -166,7 +167,7 @@ export default function Home() {
                 transition={{ duration: 0.8, delay: 0.5 }}
                 viewport={{ once: true }}
               >
-                I love turning ideas into reality through code and constantly strive to learn and improve my skills. When I&apos;m not coding, you can find me training volleyball, Volunteering, or Just watching movies..
+                I love turning ideas into reality through code and constantly strive to learn and improve my skills. When I&apos;m not coding, you can find me training volleyball, Volunteering, or just watching movies..
               </motion.p>
               {/* Location Badge */}
               <motion.div 
@@ -199,9 +200,10 @@ export default function Home() {
       </section>
 
       <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-white">
-      <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8">My Skills</h2>
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8">My Skills</h2>
         <Skills />
       </section>
+
       {/* Projects Section */}
       <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

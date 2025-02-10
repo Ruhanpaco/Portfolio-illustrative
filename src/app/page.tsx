@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import Image from 'next/image'; // Import the Image component from Next.js
 import SocialMedia from './components/SocialMedia';
 import Skills from './components/Skills';
 import ByTheNumbers from './components/ByTheNumbers'; // Import the updated component
@@ -116,14 +117,21 @@ export default function Home() {
 
         {/* Right Side (Image) */}
         <div className="w-full md:w-1/2 flex justify-center mt-8 md:mt-0">
-          <motion.img 
-            src="/assets/img/image-profile.svg" 
-            alt="Profile Image"
+          <motion.div 
             className="w-full max-w-[300px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[700px] xl:max-w-[800px] h-auto object-contain"
             initial={{ opacity: 0, x: 100 }} 
             animate={{ opacity: 1, x: 0 }} 
             transition={{ duration: 1, delay: 1 }}
-          />
+          >
+            <Image 
+              src="/assets/img/image-profile.svg" 
+              alt="Profile Image"
+              layout="responsive"
+              width={500}
+              height={500}
+              objectFit="contain"
+            />
+          </motion.div>
         </div>
       </section>
 
@@ -147,7 +155,20 @@ export default function Home() {
           </motion.div>
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8">About Me</h2>
-          <div className="flex flex-col md:flex-row items-center gap-8">
+          <div className="flex flex-col md:flex-row-reverse items-center gap-8">
+            {/* Right Side (Image) */}
+            <div className="w-full md:w-1/2 flex justify-center">
+              <motion.img 
+                src="/assets/img/about-me.png" // Updated image path
+                alt="About Me"
+                className="w-[450px] h-[450px] object-cover rounded-lg" // No shadow, no border
+                initial={{ opacity: 0, x: 100 }} 
+                whileInView={{ opacity: 1, x: 0 }} 
+                transition={{ duration: 1, delay: 0.5 }}
+                viewport={{ once: true }}
+              />
+            </div>
+
             {/* Left Side (Text) */}
             <div className="w-full md:w-1/2">
               <motion.p 
@@ -181,22 +202,10 @@ export default function Home() {
                 </span>
               </motion.div>
             </div>
-
-            {/* Right Side (Image) */}
-            <div className="w-full flex justify-center">
-              <motion.img 
-                src="/assets/img/about-me.png" // Updated image path
-                alt="About Me"
-                className="w-[450px] h-[450px] object-cover rounded-lg" // Bigger and no shadow
-                initial={{ opacity: 0, x: 100 }} 
-                whileInView={{ opacity: 1, x: 0 }} 
-                transition={{ duration: 1, delay: 0.5 }}
-                viewport={{ once: true }}
-              />
-            </div>
           </div>
         </div>
       </section>
+
 
       <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-white">
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8">My Skills</h2>
@@ -219,10 +228,14 @@ export default function Home() {
               >
                 {/* Photo on the Left */}
                 <div className="w-full md:w-1/3 flex justify-center">
-                  <img
+                  <Image
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-48 md:h-64 object-cover rounded-lg border border-black"
+                    layout="intrinsic"
+                    width={400}
+                    height={300}
+                    objectFit="cover"
+                    className="rounded-lg border-2 border-black"
                   />
                 </div>
 

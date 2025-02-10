@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import SocialMedia from './components/SocialMedia';
-import Image from 'next/image';
 import Skills from './components/Skills';
 import ByTheNumbers from './components/ByTheNumbers'; // Import the updated component
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';

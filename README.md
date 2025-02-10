@@ -1,78 +1,102 @@
-# Ruhan's Portfolio
+```markdown
+# Ruhan Pacolli Portfolio
 
-A modern and responsive portfolio website built with Next.js and Tailwind CSS.
+Welcome to my personal portfolio! This repository contains the code for my online portfolio website, built using **Next.js** and **Tailwind CSS**. This website showcases my skills, projects, and services. It is designed to be a professional yet modern, minimalistic online presence.
 
-## 🚀 Features
+## Table of Contents
 
-- Fast and optimized performance
-- Modern UI/UX with Framer Motion animations
-- Responsive design for all devices
-- Contact form integration with EmailJS
-- Dark & Light mode (if applicable)
+- [Overview](#overview)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Setup](#setup)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
 
-## 🛠️ Tech Stack
+## Overview
 
-- **Framework**: Next.js 15.1.6
-- **Styling**: Tailwind CSS 3.4.1
-- **Animations**: Framer Motion 12.4.1
-- **Icons**: React Icons 5.4.0
-- **Email Service**: EmailJS
+This portfolio site features:
+- A **home page** that introduces me and showcases my work.
+- A **contact page** with an interactive form to reach out, featuring animations and smooth transitions.
+- **Responsive design**, ensuring it looks great on all devices (desktop, tablet, mobile).
+- **Internationalization (i18n)**: the site auto-selects the language based on the user's location (EN, DE, SQ).
 
-## 📦 Installation
+The website has been carefully designed using **Next.js** for its dynamic rendering capabilities and **Tailwind CSS** for a clean and efficient styling system. The contact form integrates an email service to enable potential clients or collaborators to get in touch with me directly.
 
-1. Clone the repository:
-   ```sh
-   git clone https://github.com/Ruhanpaco/ruhan-portfolio.git
-   cd ruhan-portfolio
+## Features
+
+- **Interactive Form**: Users can send messages through the contact form with real-time feedback.
+- **Animations**: The website uses **Framer Motion** for smooth animations and transitions to enhance the user experience.
+- **Social Media Links**: Easily accessible links to my social media profiles, such as **Twitter**, **Instagram**, and **GitHub**.
+- **Contact Information**: An email link is provided for direct contact.
+- **Responsive Design**: The layout adapts to various screen sizes for a seamless experience on mobile, tablet, and desktop devices.
+- **Multi-language Support**: Automatic language detection based on the user's location (EN, DE, SQ).
+
+## Tech Stack
+
+- **Frontend**: 
+  - **Next.js**: React framework for building static and dynamic web applications.
+  - **Tailwind CSS**: Utility-first CSS framework for fast styling.
+  - **Framer Motion**: Animation library for React to handle smooth transitions and animations.
+- **Backend**: 
+  - **Email Service**: Integrated email functionality using a third-party email API to send messages from the contact form.
+
+## Setup
+
+To run the project locally, follow these steps:
+
+### Prerequisites
+
+Make sure you have **Node.js** installed on your machine. You can download it from [nodejs.org](https://nodejs.org/).
+
+### Installation
+
+1. Clone this repository:
+
+   ```bash
+   git clone https://github.com/yourusername/portfolio.git
+   cd portfolio
    ```
-2. Install dependencies:
-   ```sh
+
+2. Install the dependencies:
+
+   ```bash
    npm install
-   # or
-   yarn install
    ```
-3. Create a `.env.local` file and add your EmailJS credentials:
-   ```sh
-   NEXT_PUBLIC_EMAILJS_SERVICE_ID=your_service_id
-   NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=your_template_id
-   NEXT_PUBLIC_EMAILJS_USER_ID=your_user_id
-   ```
+
+3. Configure environment variables (optional): You may need to set up an email API to enable the contact form functionality. Check the documentation for your email service provider (e.g., **SendGrid**, **Mailgun**, or **SMTP**).
+
 4. Run the development server:
-   ```sh
+
+   ```bash
    npm run dev
-   # or
-   yarn dev
    ```
-5. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## 📜 Scripts
+5. Open your browser and navigate to `http://localhost:3000` to view the portfolio.
 
-- `npm run dev` - Runs the development server.
-- `npm run build` - Builds the production-ready files.
-- `npm run start` - Starts the production server.
-- `npm run lint` - Runs ESLint for code quality.
+## Usage
 
-## 📂 Folder Structure
+- You can view my portfolio at [ruhanpacolli.online](https://ruhanpacolli.online).
+- The contact form can be used to send me inquiries directly via email. After submission, you'll receive feedback on the success or failure of your message.
 
-```
-ruhan-portfolio/
-├── public/         # Static assets
-├── src/            # Source code
-│   ├── components/ # Reusable UI components
-│   ├── pages/      # Next.js pages
-│   ├── styles/     # Global styles
-│   └── utils/      # Utility functions
-├── .env.local      # Environment variables (not committed)
-├── package.json    # Dependencies and scripts
-├── tailwind.config.js # Tailwind CSS config
-└── next.config.js  # Next.js config
-```
+## Contributing
 
-## 📄 License
+Feel free to fork this repository and make any improvements or additions. If you'd like to contribute, please follow these steps:
 
-This project is licensed under the MIT License.
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature/your-feature-name`).
+3. Commit your changes (`git commit -am 'Add new feature'`).
+4. Push to the branch (`git push origin feature/your-feature-name`).
+5. Create a new Pull Request.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
-Made with ❤️ by Ruhan Pacolli.
+Thank you for checking out my portfolio! Feel free to reach out if you have any questions or inquiries.
+
+```
+
 # Portfolio-illustrative

@@ -168,13 +168,10 @@ export default function Resume() {
             No Resume Available
           </motion.p>
 
-          {/* Professional Summary */}
-          <div className="mt-8">
-            <h2 className="text-xl font-bold text-gray-900 mb-4">Professional Summary</h2>
-            <p className="text-gray-700 leading-relaxed">
-              Hi, I&apos;m Ruhan Pacolli, a software developer from Kosovo with a passion for building web applications that solve real-world problems. My focus is on creating modern and scalable applications using technologies like JavaScript, React, and more.
-            </p>
-          </div>
+          <p className="text-gray-700 leading-relaxed">
+             Hi, I&ldquo;m Ruhan Pacolli, a software developer from Kosovo with a passion for building web applications that solve real-world problems. My focus is on creating modern and scalable applications using technologies like JavaScript, React, and more.
+          </p>
+
 
           {/* Skills */}
           <div className="mt-8 w-full">

@@ -262,7 +262,7 @@ export default function Resume() {
                   className="bg-white p-6 rounded-lg shadow-md border border-gray-200 hover:shadow-lg transition-shadow"
                   whileHover={{ scale: 1.02 }}
                 >
-                  <p className="text-gray-700 italic">"{testimonial.feedback}"</p>
+                  <p className="text-gray-700 italic">&ldquo;{testimonial.feedback}&rdquo;</p>
                   <h4 className="text-gray-900 font-bold mt-4">{testimonial.name}</h4>
                   <p className="text-gray-500 text-sm">{testimonial.position}</p>
                 </motion.div>

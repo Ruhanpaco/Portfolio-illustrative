@@ -137,14 +137,6 @@ export default function Resume() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <motion.img
-            src="/assets/img/profile.jpg"
-            alt="Ruhan Pacolli"
-            className="w-32 h-32 rounded-full border-4 border-gray-300 shadow-md"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
-          />
           <h1 className="text-3xl font-bold mt-6 text-gray-900">Ruhan Pacolli</h1>
           <p className="text-gray-500 text-lg">Full-Stack Developer</p>
 
@@ -180,7 +172,7 @@ export default function Resume() {
           <div className="mt-8">
             <h2 className="text-xl font-bold text-gray-900 mb-4">Professional Summary</h2>
             <p className="text-gray-700 leading-relaxed">
-              Hi, I&apos;m Ruhan Pacolli, a software developer from Kosovo with a passion for building web applications that solve real-world problems. My focus is on creating modern and scalable applications using technologies like JavaScript, React, and more.
+            Hi, I&amp;#39;m Ruhan Pacolli, a software developer from Kosovo with a passion for building web applications that solve real-world problems. My focus is on creating modern and scalable applications using technologies like JavaScript, React, and more.
             </p>
 
           </div>

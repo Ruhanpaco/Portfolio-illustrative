@@ -89,7 +89,7 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }} 
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            Hi, I'm
+            I&apos;m
           </motion.h1>
           <motion.h2 
             className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold" 

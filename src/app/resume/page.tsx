@@ -32,7 +32,7 @@ const projects = [
   },
   {
     name: 'Portfolio Website',
-    link: 'https://ruhanpaco.com',
+    link: 'https://ruhanpacolli.com',
     description: 'A personal portfolio website showcasing projects, skills, and certifications.',
   },
 ];
@@ -180,7 +180,7 @@ export default function Resume() {
           <div className="mt-8">
             <h2 className="text-xl font-bold text-gray-900 mb-4">Professional Summary</h2>
             <p className="text-gray-700 leading-relaxed">
-              Hi, I'm Ruhan Pacolli, a software developer from Kosovo with a passion for building web applications that solve real-world problems. My focus is on creating modern and scalable applications using technologies like JavaScript, React, and more.
+              Hi, I&aposm Ruhan Pacolli, a software developer from Kosovo with a passion for building web applications that solve real-world problems. My focus is on creating modern and scalable applications using technologies like JavaScript, React, and more.
             </p>
           </div>
 

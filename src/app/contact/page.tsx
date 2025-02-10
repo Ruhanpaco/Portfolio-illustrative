@@ -222,7 +222,7 @@ export default function Contact() {
             Contact Information
           </motion.h2>
           <p className="text-lg mb-4 text-black">
-            If you'd prefer to email me directly, you can reach me at:
+            If you&aposd prefer to email me directly, you can reach me at:
           </p>
           <p className="text-xl font-semibold text-black mb-4">
             <a
@@ -248,7 +248,7 @@ export default function Contact() {
               ✕
             </button>
             <h3 className="text-2xl font-bold mb-4 text-black">Thank you for contacting me!</h3>
-            <p className="text-lg mb-4 text-black">I'll get back to you shortly.</p>
+            <p className="text-lg mb-4 text-black">I&aposll get back to you shortly.</p>
           </div>
         </div>
       )}

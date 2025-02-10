@@ -176,7 +176,6 @@ export default function Resume() {
             </p>
           </div>
 
-
           {/* Skills */}
           <div className="mt-8 w-full">
             <h2 className="text-xl font-bold text-gray-900 mb-4">Skills</h2>

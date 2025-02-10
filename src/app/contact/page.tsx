@@ -34,7 +34,7 @@ export default function Contact() {
     setSuccess(null);
 
     try {
-      const response = await sendEmail(formData);
+      await sendEmail(formData); // We no longer need to store the response value
       setIsSending(false);
       setSuccess('Your message has been sent successfully!');
       setFormData({ name: '', email: '', phone: '', topic: '', message: '' });
@@ -45,7 +45,7 @@ export default function Contact() {
       // Show notification
       setShowNotification(true);
       setTimeout(() => setShowNotification(false), 5000); // Hide after 5 seconds
-    } catch (err) {
+    } catch {
       setIsSending(false);
       setError('There was an issue sending your message. Please try again later.');
 

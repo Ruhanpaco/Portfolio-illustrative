@@ -157,7 +157,7 @@ export default function Home() {
                 transition={{ duration: 0.8, delay: 0.3 }}
                 viewport={{ once: true }}
               >
-                Hi, I&aposm Ruhan Pacolli, a passionate web developer based in Kosovo. I specialize in creating modern, responsive, and user-friendly websites and applications.
+                Hi, I&apos;m Ruhan Pacolli, a passionate web developer based in Kosovo. I specialize in creating modern, responsive, and user-friendly websites and applications.
               </motion.p>
               <motion.p 
                 className="text-lg sm:text-xl text-gray-600 mb-6" 
@@ -166,7 +166,7 @@ export default function Home() {
                 transition={{ duration: 0.8, delay: 0.5 }}
                 viewport={{ once: true }}
               >
-                I love turning ideas into reality through code and constantly strive to learn and improve my skills. When I&aposm not coding, you can find me training volleyball, Volunteering, or Just watching movies..
+                I love turning ideas into reality through code and constantly strive to learn and improve my skills. When I&apos;m not coding, you can find me training volleyball, Volunteering, or Just watching movies..
               </motion.p>
               {/* Location Badge */}
               <motion.div 

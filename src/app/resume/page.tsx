@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { FaEnvelope, FaGithub, FaFilePdf, FaGraduationCap, FaMapMarkerAlt, FaCode } from 'react-icons/fa';
+import { FaEnvelope, FaGithub, FaFilePdf, FaMapMarkerAlt, FaCode, FaGraduationCap } from 'react-icons/fa';
 import Image from 'next/image';
 
 // Data
@@ -200,7 +200,9 @@ export default function Resume() {
 
             {/* Education Section */}
             <div className="rounded-2xl p-6 border-2 border-black">
-              <h2 className="text-xl font-bold mb-6">Education</h2>
+              <h2 className="text-xl font-bold mb-6 flex items-center gap-2">
+                <FaGraduationCap /> Education
+              </h2>
               <div className="space-y-6">
                 {education.map((edu, index) => (
                   <div key={index} className="border-l-2 border-black pl-4">

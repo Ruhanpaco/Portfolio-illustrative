@@ -52,7 +52,7 @@ export default function Profile() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
           >
-            Hi, I'm Ruhan Pacolli, a software developer from Kosovo with a passion for building web applications that solve real-world problems. My focus is on creating modern and scalable applications using technologies like JavaScript, React, and more.
+            Hi, I&apos;m Ruhan Pacolli, a software developer from Kosovo with a passion for building web applications that solve real-world problems. My focus is on creating modern and scalable applications using technologies like JavaScript, React, and more.
           </motion.p>
 
           {/* Contact Links */}

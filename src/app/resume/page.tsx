@@ -5,7 +5,7 @@ import { FaEnvelope, FaGithub, FaFilePdf, FaGraduationCap, FaMapMarkerAlt, FaCod
 import Image from 'next/image';
 
 // Data
-const certifications = [
+const certifications: Certification[] = [
   {
     name: 'SQL Certificate',
     institution: 'Codecademy',
@@ -20,7 +20,7 @@ const certifications = [
   },
 ];
 
-const projects = [
+const projects: Project[] = [
   {
     name: 'SaaS Landing Page',
     link: 'https://saas-landing-page.vercel.app/',
@@ -43,7 +43,7 @@ const projects = [
   },
 ];
 
-const education = [
+const education: Education[] = [
   {
     degree: 'Middle School Certification',
     institution: 'Don Bosco Kosova',

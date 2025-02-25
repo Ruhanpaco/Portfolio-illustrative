@@ -16,7 +16,6 @@ export default function Contact() {
   const [isSending, setIsSending] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
-  const [showPopup, setShowPopup] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -39,18 +38,12 @@ export default function Contact() {
       setSuccess('Your message has been sent successfully!');
       setFormData({ name: '', email: '', phone: '', topic: '', message: '' });
 
-      // Show popup
-      setShowPopup(true);
-
       // Show notification
       setShowNotification(true);
       setTimeout(() => setShowNotification(false), 5000); // Hide after 5 seconds
     } catch {
       setIsSending(false);
       setError('There was an issue sending your message. Please try again later.');
-
-      // Show popup for error
-      setShowPopup(true);
     }
   };
 
@@ -64,9 +57,9 @@ export default function Contact() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-5xl sm:text-6xl font-bold mb-6 text-black">Let's Connect</h1>
+          <h1 className="text-5xl sm:text-6xl font-bold mb-6 text-black">Let&apos;s Connect</h1>
           <p className="text-xl sm:text-2xl text-black">
-            Have a project in mind or just want to chat? I'd love to hear from you.
+            Have a project in mind or just want to chat? I&apos;d love to hear from you.
           </p>
         </motion.div>
       </section>

@@ -41,6 +41,11 @@ const projects: Project[] = [
     link: 'https://dental-clinic-ivory.vercel.app/',
     description: 'A responsive website for a dental clinic, featuring a clean design and easy navigation.',
   },
+  {
+    name: ' Algorithm Visualizer Website',
+    link: 'https://algorithm-visualizer-three-omega.vercel.app/',
+    description: 'A modern, interactive web application that visualizes sorting algorithms. Built with Next.js and TailwindCSS, this project helps users understand how different algorithms work through visual representation and animation.',
+  },
 ];
 
 const education: Education[] = [

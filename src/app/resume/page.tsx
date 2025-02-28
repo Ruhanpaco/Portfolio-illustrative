@@ -46,6 +46,13 @@ const projects: Project[] = [
     link: 'https://algorithm-visualizer-three-omega.vercel.app/',
     description: 'A modern, interactive web application that visualizes sorting algorithms. Built with Next.js and TailwindCSS, this project helps users understand how different algorithms work through visual representation and animation.',
   },
+ {
+    name: 'Banking App Design',
+    link: 'https://github.com/Ruhanpaco/Bank-app-design',
+    description: 'A sleek banking app UI built with React Native and TypeScript, offering an animated user experience with smooth transitions and interactive elements for effortless mobile banking.
+
+',
+  },
 ];
 
 const education: Education[] = [

@@ -49,10 +49,8 @@ const projects: Project[] = [
  {
     name: 'Banking App Design',
     link: 'https://github.com/Ruhanpaco/Bank-app-design',
-    description: 'A sleek banking app UI built with React Native and TypeScript, offering an animated user experience with smooth transitions and interactive elements for effortless mobile banking.
-
-',
-  },
+    description: 'A sleek banking app UI built with React Native and TypeScript, offering an animated user experience with smooth transitions and interactive elements for effortless mobile banking.'
+  }
 ];
 
 const education: Education[] = [

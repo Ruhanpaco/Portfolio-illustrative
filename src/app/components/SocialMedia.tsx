@@ -28,7 +28,7 @@ const SocialMedia = () => {
         <FaGithub className="text-black" size={24} />
       </a>
       <a
-        href="https://instagram.com/Ruhan.paco"
+        href="https://instagram.com/Ruhanpacollidev"
         target="_blank"
         rel="noopener noreferrer"
         className="bg-white border-2 border-black rounded-lg p-3 hover:bg-gray-100 transition duration-300"

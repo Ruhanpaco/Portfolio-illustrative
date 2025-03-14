@@ -46,6 +46,11 @@ const projects: Project[] = [
     link: 'https://algorithm-visualizer-three-omega.vercel.app/',
     description: 'A modern, interactive web application that visualizes sorting algorithms. Built with Next.js and TailwindCSS, this project helps users understand how different algorithms work through visual representation and animation.',
   },
+  {
+  name: 'KV Prishtina Junior',
+  link: 'https://kvprishtinajunior.vercel.app/',
+  description: 'A volleyball website collaborated with Kv prishtina Junior, a clean and sleek design, with a natural color, and easy structure around the website, with real time data',
+}
  {
     name: 'Banking App Design',
     link: 'https://github.com/Ruhanpaco/Bank-app-design',

@@ -59,8 +59,9 @@ export default function Home() {
       title: "Kv Prishtina Junior Website",
       description: "Professional Volleyball website featuring elegant design with Next.js, TailwindCSS, and seamless match system, build with PostgreDB and typescript.",
       image: "/assets/img/volleyball.png",
-      github: null
-      liveDemo: "https://kvprishtinajunior.vercel.app/",
+      github: null,
+      liveDemo: null,
+      Live: "https://kvprishtinajunior.vercel.app/",
       technologies: [
         { name: "Next.js", icon: <SiNextdotjs className="text-black text-xl" /> },
         { name: "React", icon: <SiReact className="text-blue-500 text-xl" /> },
@@ -285,7 +286,7 @@ export default function Home() {
                     ))}
                   </div>
 
-                  {/* Project Links */}
+                  {/* Project Links Demo */}
                   <div className="flex flex-wrap gap-6 pt-6">
                     {project.github && (
                       <a
@@ -305,6 +306,22 @@ export default function Home() {
                         className="flex items-center px-8 py-3 bg-white border-2 border-black text-black rounded-xl hover:bg-gray-100 transition-colors text-lg"
                       >
                         <FaExternalLinkAlt className="mr-2" /> Live Demo
+                      </a>
+                    )}
+
+
+
+
+
+                  <div className="flex flex-wrap gap-6 pt-6">
+                    {project.Live && (
+                      <a
+                        href={project.Live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center px-8 py-3 bg-white border-2 border-black text-black rounded-xl hover:bg-gray-100 transition-colors text-lg"
+                      >
+                        <FaExternalLinkAlt className="mr-2" /> Live
                       </a>
                     )}
                   </div>

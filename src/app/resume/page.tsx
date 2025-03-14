@@ -50,7 +50,7 @@ const projects: Project[] = [
   name: 'KV Prishtina Junior',
   link: 'https://kvprishtinajunior.vercel.app/',
   description: 'A volleyball website collaborated with Kv prishtina Junior, a clean and sleek design, with a natural color, and easy structure around the website, with real time data',
-}
+},
  {
     name: 'Banking App Design',
     link: 'https://github.com/Ruhanpaco/Bank-app-design',

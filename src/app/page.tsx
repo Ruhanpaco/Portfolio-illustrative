@@ -71,6 +71,7 @@ export default function Home() {
         { name: "Google API Cloud", icon: <FcGoogle className="text-xl" /> },
     
       ],
+    },
       {
       id: 5,
       title: "Dental Clinic Website",

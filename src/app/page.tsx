@@ -3,9 +3,9 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import SocialMedia from "@/components/SocialMedia";
-import Skills from "@/components/Skills";
-import ByTheNumbers from "@/components/ByTheNumbers";
+import SocialMedia from "./components/SocialMedia";
+import Skills from "./components/Skills";
+import ByTheNumbers from "./components/ByTheNumbers";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import { SiNextdotjs, SiReact, SiTailwindcss, SiTypescript } from "react-icons/si";
 import { FiMapPin } from "react-icons/fi";

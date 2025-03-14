@@ -1,19 +1,22 @@
-'use client';
+"use client"; // Ensure this is a Client Component
 
-import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
-import Image from 'next/image'; // Import the Image component from Next.js
-import SocialMedia from './components/SocialMedia';
-import Skills from './components/Skills';
-import ByTheNumbers from './components/ByTheNumbers'; // Import the updated component
-import { FaGithub, FcGoogle, FaExternalLinkAlt } from 'react-icons/fa';
-import { SiNextdotjs, SiReact, SiTailwindcss, SiTypescript,  } from 'react-icons/si';
-import { FiMapPin } from 'react-icons/fi';
+import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import Image from "next/image";
+import SocialMedia from "@/components/SocialMedia";
+import Skills from "@/components/Skills";
+import ByTheNumbers from "@/components/ByTheNumbers";
+import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import { SiNextdotjs, SiReact, SiTailwindcss, SiTypescript } from "react-icons/si";
+import { FiMapPin } from "react-icons/fi";
 import { BiLogoPostgresql } from "react-icons/bi";
+import { FcGoogle } from "react-icons/fc";
 
-export default function Home() {
-  // Sample projects data
-  const projects = [
+export default function HomeClient() {
+  // Local Time State
+  const [localTime, setLocalTime] = useState("");
+
+    const projects = [
     {
       id: 1,
       title: "Saas Landing Page",
@@ -60,8 +63,7 @@ export default function Home() {
       description: "Professional Volleyball website featuring elegant design with Next.js, TailwindCSS, and seamless match system, build with PostgreDB and typescript.",
       image: "/assets/img/volleyball.png",
       github: null,
-      liveDemo: null,
-      Live: "https://kvprishtinajunior.vercel.app/",
+      LiveDemo: "https://kvprishtinajunior.vercel.app/",
       technologies: [
         { name: "Next.js", icon: <SiNextdotjs className="text-black text-xl" /> },
         { name: "React", icon: <SiReact className="text-blue-500 text-xl" /> },
@@ -87,23 +89,19 @@ export default function Home() {
       ],
     },
   ];
-
-  // Local Time State
-  const [localTime, setLocalTime] = useState('');
-
   useEffect(() => {
     const updateTime = () => {
-      const time = new Date().toLocaleTimeString('en-US', {
-        timeZone: 'Europe/Belgrade', // GMT+1 (Kosovo timezone)
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
+      const time = new Date().toLocaleTimeString("en-US", {
+        timeZone: "Europe/Belgrade",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
       });
       setLocalTime(time);
     };
 
     updateTime();
-    const interval = setInterval(updateTime, 1000); // Update every second
+    const interval = setInterval(updateTime, 1000);
     return () => clearInterval(interval);
   }, []);
 
@@ -111,34 +109,16 @@ export default function Home() {
     <main className="bg-white text-gray-800">
       {/* Hero Section */}
       <section className="relative bg-white min-h-screen flex flex-col md:flex-row items-center justify-center px-4 sm:px-6 md:px-8 py-20 md:py-0">
-        {/* Left Side (Text) */}
         <div className="flex flex-col items-start w-full md:w-1/2 max-w-xl space-y-4 md:space-y-6 mt-16 md:mt-0">
-          <motion.h1 
-            className="text-4xl sm:text-5xl md:text-6xl font-semibold" 
-            initial={{ opacity: 0, y: 50 }} 
-            animate={{ opacity: 1, y: 0 }} 
-            transition={{ duration: 0.8, delay: 0.3 }}
-          >
+          <motion.h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold" initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }}>
             I&apos;m
           </motion.h1>
-          <motion.h2 
-            className="text-5xl sm:text-6xl md:text-7xl font-bold" 
-            initial={{ opacity: 0, y: 50 }} 
-            animate={{ opacity: 1, y: 0 }} 
-            transition={{ duration: 1, delay: 0.5 }}
-          >
+          <motion.h2 className="text-5xl sm:text-6xl md:text-7xl font-bold" initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.5 }}>
             Ruhan Pacolli
           </motion.h2>
-          <motion.p 
-            className="text-lg sm:text-xl md:text-2xl font-light text-gray-600" 
-            initial={{ opacity: 0, y: 50 }} 
-            animate={{ opacity: 1, y: 0 }} 
-            transition={{ duration: 1, delay: 0.7 }}
-          >
+          <motion.p className="text-lg sm:text-xl md:text-2xl font-light text-gray-600" initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.7 }}>
             A passionate web developer creating beautiful, functional websites and experiences. Welcome to my portfolio!
           </motion.p>
-          
-          {/* Social Media Component */}
           <div className="mt-8">
             <SocialMedia />
           </div>
@@ -146,20 +126,8 @@ export default function Home() {
 
         {/* Right Side (Image) */}
         <div className="w-full md:w-1/2 flex justify-center mt-12 md:mt-0">
-          <motion.div 
-            className="w-[90%] max-w-[800px]"
-            initial={{ opacity: 0, x: 100 }} 
-            animate={{ opacity: 1, x: 0 }} 
-            transition={{ duration: 1, delay: 1 }}
-          >
-            <Image 
-              src="/assets/img/image-profile.svg" 
-              alt="Profile Image"
-              width={800}
-              height={800}
-              className="w-full h-auto"
-              priority
-            />
+          <motion.div className="w-[90%] max-w-[800px]" initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 1, delay: 1 }}>
+            <Image src="/assets/img/image-profile.svg" alt="Profile Image" width={800} height={800} className="w-full h-auto" priority />
           </motion.div>
         </div>
       </section>
@@ -170,102 +138,18 @@ export default function Home() {
       {/* About Me Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 max-w-7xl">
-          {/* Local Time Badge */}
-          <motion.div
-            className="flex justify-center mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <span className="bg-gray-100 px-6 py-3 rounded-full text-sm font-semibold flex items-center">
-              🕒 Local Time: {localTime}
-            </span>
+          <motion.div className="flex justify-center mb-12" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }}>
+            <span className="bg-gray-100 px-6 py-3 rounded-full text-sm font-semibold flex items-center"> 🕒 Local Time: {localTime} </span>
           </motion.div>
 
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">About Me</h2>
-          <div className="flex flex-col md:flex-row-reverse items-center gap-12 md:gap-16">
-            {/* Right Side (Image) */}
-            <div className="w-full md:w-1/2">
-              <motion.img 
-                src="/assets/img/about-me.png"
-                alt="About Me"
-                className="w-[90%] max-w-[900px] mx-auto rounded-lg"
-                initial={{ opacity: 0, x: 100 }} 
-                whileInView={{ opacity: 1, x: 0 }} 
-                transition={{ duration: 1 }}
-                viewport={{ once: true }}
-              />
-            </div>
-
-            {/* Left Side (Text) */}
-            <div className="w-full md:w-1/2 space-y-6">
-              <motion.p 
-                className="text-lg md:text-xl text-gray-600" 
-                initial={{ opacity: 0, y: 20 }} 
-                whileInView={{ opacity: 1, y: 0 }} 
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-              >
-                Hi, I&apos;m Ruhan Pacolli, a passionate web developer based in Kosovo. I specialize in creating modern, responsive, and user-friendly websites and applications.
-              </motion.p>
-              <motion.p 
-                className="text-lg md:text-xl text-gray-600" 
-                initial={{ opacity: 0, y: 20 }} 
-                whileInView={{ opacity: 1, y: 0 }} 
-                transition={{ duration: 0.8, delay: 0.2 }}
-                viewport={{ once: true }}
-              >
-                I love turning ideas into reality through code and constantly strive to learn and improve my skills. When I&apos;m not coding, you can find me training volleyball, Volunteering, or just watching movies.
-              </motion.p>
-              {/* Location Badge */}
-              <motion.div 
-                className="flex space-x-4" 
-                initial={{ opacity: 0, y: 20 }} 
-                whileInView={{ opacity: 1, y: 0 }} 
-                transition={{ duration: 0.8, delay: 0.4 }}
-                viewport={{ once: true }}
-              >
-                <span className="bg-gray-100 px-6 py-3 rounded-full text-sm font-semibold flex items-center">
-                  <FiMapPin className="mr-2" /> Kosovo
-                </span>
-              </motion.div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Skills Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">My Skills</h2>
-          <Skills />
-        </div>
-      </section>
-
-      {/* Projects Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4 max-w-7xl">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">My Projects</h2>
           <div className="space-y-16">
             {projects.map((project) => (
-              <motion.div 
-                key={project.id} 
-                className="flex flex-col md:flex-row items-start gap-8 md:gap-12 bg-white border border-black rounded-xl p-6 md:p-8 hover:shadow-xl transition-shadow"
-                initial={{ opacity: 0, y: 20 }} 
-                whileInView={{ opacity: 1, y: 0 }} 
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-              >
+              <motion.div key={project.id} className="flex flex-col md:flex-row items-start gap-8 md:gap-12 bg-white border border-black rounded-xl p-6 md:p-8 hover:shadow-xl transition-shadow" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }}>
                 {/* Project Image */}
                 <div className="w-full md:w-2/5">
                   <div className="relative aspect-[4/3] w-full">
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      fill
-                      className="rounded-xl border-2 border-black object-cover"
-                    />
+                    <Image src={project.image} alt={project.title} fill className="rounded-xl border-2 border-black object-cover" />
                   </div>
                 </div>
 
@@ -277,51 +161,22 @@ export default function Home() {
                   {/* Technology Badges */}
                   <div className="flex flex-wrap gap-4">
                     {project.technologies.map((tech, index) => (
-                      <div
-                        key={index}
-                        className="flex items-center bg-gray-100 px-4 py-2 rounded-full text-base"
-                      >
+                      <div key={index} className="flex items-center bg-gray-100 px-4 py-2 rounded-full text-base">
                         {tech.icon}
                         <span className="ml-2">{tech.name}</span>
                       </div>
                     ))}
                   </div>
 
-                  {/* Project Links Demo */}
+                  {/* Project Links */}
                   <div className="flex flex-wrap gap-6 pt-6">
                     {project.github && (
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center px-8 py-3 bg-black text-white rounded-xl hover:bg-gray-800 transition-colors text-lg"
-                      >
+                      <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center px-8 py-3 bg-black text-white rounded-xl hover:bg-gray-800 transition-colors text-lg">
                         <FaGithub className="mr-2" /> GitHub
                       </a>
                     )}
                     {project.liveDemo && (
-                      <a
-                        href={project.liveDemo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center px-8 py-3 bg-white border-2 border-black text-black rounded-xl hover:bg-gray-100 transition-colors text-lg"
-                      >
-                        <FaExternalLinkAlt className="mr-2" /> Live Demo
-                      </a>
-                    )}
-
-
-
-
-
-                  <div className="flex flex-wrap gap-6 pt-6">
-                    {project.Live && (
-                      <a
-                        href={project.Live}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center px-8 py-3 bg-white border-2 border-black text-black rounded-xl hover:bg-gray-100 transition-colors text-lg"
-                      >
+                      <a href={project.liveDemo} target="_blank" rel="noopener noreferrer" className="flex items-center px-8 py-3 bg-white border-2 border-black text-black rounded-xl hover:bg-gray-100 transition-colors text-lg">
                         <FaExternalLinkAlt className="mr-2" /> Live
                       </a>
                     )}

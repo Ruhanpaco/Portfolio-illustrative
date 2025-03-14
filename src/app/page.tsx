@@ -6,9 +6,10 @@ import Image from 'next/image'; // Import the Image component from Next.js
 import SocialMedia from './components/SocialMedia';
 import Skills from './components/Skills';
 import ByTheNumbers from './components/ByTheNumbers'; // Import the updated component
-import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
-import { SiNextdotjs, SiReact, SiTailwindcss, SiTypescript } from 'react-icons/si';
+import { FaGithub, FcGoogle, FaExternalLinkAlt } from 'react-icons/fa';
+import { SiNextdotjs, SiReact, SiTailwindcss, SiTypescript,  } from 'react-icons/si';
 import { FiMapPin } from 'react-icons/fi';
+import { BiLogoPostgresql } from "react-icons/bi";
 
 export default function Home() {
   // Sample projects data
@@ -55,6 +56,22 @@ export default function Home() {
     },
     {
       id: 4,
+      title: "Kv Prishtina Junior Website",
+      description: "Professional Volleyball website featuring elegant design with Next.js, TailwindCSS, and seamless match system, build with PostgreDB and typescript.",
+      image: "/assets/img/volleyball.png",
+      github: null
+      liveDemo: "https://kvprishtinajunior.vercel.app/",
+      technologies: [
+        { name: "Next.js", icon: <SiNextdotjs className="text-black text-xl" /> },
+        { name: "React", icon: <SiReact className="text-blue-500 text-xl" /> },
+        { name: "Tailwind CSS", icon: <SiTailwindcss className="text-blue-400 text-xl" /> },
+        { name: "TypeScript", icon: <SiTypescript className="text-blue-600 text-xl" /> },
+        { name: "PostgresDB", icon: <BiLogoPostgresql className="text-green-600 text-xl" /> },
+        { name: "Google API Cloud", icon: <FcGoogle className="text-xl" /> },
+    
+      ],
+      {
+      id: 5,
       title: "Dental Clinic Website",
       description: "Luxury dental clinic website featuring elegant design with Next.js, TailwindCSS, and seamless appointment booking system. Built with modern tech stack and premium aesthetics.",
       image: "/assets/img/dental.png",

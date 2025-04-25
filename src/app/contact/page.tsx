@@ -4,6 +4,8 @@ import { useState, ChangeEvent, FormEvent } from 'react';
 import { motion } from 'framer-motion';
 import SocialMedia from '../components/SocialMedia';
 import { sendEmail } from '../lib/email';
+import { FaWhatsapp, FaEnvelope, FaMapMarkerAlt, FaPhoneAlt } from 'react-icons/fa';
+import Link from 'next/link';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -50,33 +52,37 @@ export default function Contact() {
   return (
     <div className="min-h-screen bg-[#FAFAFA] text-black">
       {/* Hero Section */}
-      <section className="min-h-[50vh] flex items-center justify-center pt-24 px-4">
+      <section className="min-h-[40vh] flex items-center justify-center pt-24 px-4 relative overflow-hidden">
+        <div className="absolute inset-0 w-full h-full bg-[#f3f3f3] z-0">
+          <div className="absolute inset-0 opacity-30 bg-grid-pattern"></div>
+        </div>
         <motion.div 
-          className="text-center max-w-3xl mx-auto"
+          className="text-center max-w-3xl mx-auto z-10"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-5xl sm:text-6xl font-bold mb-6 text-black">Let&apos;s Connect</h1>
-          <p className="text-xl sm:text-2xl text-black">
-            Have a project in mind or just want to chat? I&apos;d love to hear from you.
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 text-black">Let&apos;s Connect</h1>
+          <p className="text-lg sm:text-xl md:text-2xl text-black/80 max-w-2xl mx-auto">
+            Have a project in mind or just want to chat? I&apos;m always open to discussing new opportunities and ideas.
           </p>
         </motion.div>
       </section>
 
       {/* Form Section */}
-      <section className="py-16 px-4">
+      <section className="py-12 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
             {/* Contact Form Section */}
             <motion.div
-              className="rounded-2xl p-8 border-2 border-black"
+              className="rounded-xl sm:rounded-2xl p-6 sm:p-8 border-2 border-black bg-white shadow-sm"
               initial={{ x: -50, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.6 }}
             >
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <h2 className="text-2xl font-bold mb-6 text-black">Send Me a Message</h2>
+              <form onSubmit={handleSubmit} className="space-y-5">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   {/* Name Field */}
                   <div>
                     <label className="block text-sm font-medium mb-2 text-black" htmlFor="name">
@@ -111,7 +117,7 @@ export default function Contact() {
                 </div>
 
                 {/* Phone & Topic Row */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   {/* Phone Number Field */}
                   <div>
                     <label className="block text-sm font-medium mb-2 text-black" htmlFor="phone">
@@ -157,8 +163,8 @@ export default function Contact() {
                   <textarea
                     id="message"
                     name="message"
-                    rows={6}
-                    className="w-full p-3 border-2 border-black rounded-lg focus:outline-none focus:ring-2 focus:ring-black transition text-black"
+                    rows={5}
+                    className="w-full p-3 border-2 border-black rounded-lg focus:outline-none focus:ring-2 focus:ring-black transition text-black resize-none"
                     value={formData.message}
                     onChange={handleInputChange}
                     required
@@ -168,7 +174,7 @@ export default function Contact() {
                 {/* Submit Button */}
                 <motion.button
                   type="submit"
-                  className="w-full bg-black text-white py-4 rounded-lg text-lg font-medium hover:bg-black/80 transition-all transform hover:scale-[1.02] disabled:opacity-70 disabled:cursor-not-allowed"
+                  className="w-full bg-black text-white py-3.5 rounded-lg text-lg font-medium hover:bg-black/80 transition-all transform hover:scale-[1.02] disabled:opacity-70 disabled:cursor-not-allowed"
                   disabled={isSending}
                   whileTap={{ scale: 0.98 }}
                 >
@@ -187,7 +193,7 @@ export default function Contact() {
 
             {/* Contact Information Section */}
             <motion.div
-              className="rounded-2xl p-8 border-2 border-black"
+              className="rounded-xl sm:rounded-2xl p-6 sm:p-8 border-2 border-black bg-white shadow-sm"
               initial={{ x: 50, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.6 }}
@@ -195,22 +201,58 @@ export default function Contact() {
               <h2 className="text-2xl font-bold mb-6 text-black">Contact Information</h2>
               
               <div className="space-y-6">
-                <div>
-                  <h3 className="text-lg font-semibold mb-2 text-black">Email</h3>
+                <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                  <h3 className="flex items-center text-lg font-semibold mb-2 text-black gap-2">
+                    <FaEnvelope className="text-black" />
+                    Email
+                  </h3>
                   <a
                     href="mailto:hi@ruhanpacolli.online"
-                    className="text-lg text-black hover:opacity-70 transition-opacity flex items-center gap-2"
+                    className="text-base text-black hover:underline transition-all flex items-center gap-2"
                   >
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                    </svg>
                     hi@ruhanpacolli.online
                   </a>
+                </div>
+
+                <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                  <h3 className="flex items-center text-lg font-semibold mb-2 text-black gap-2">
+                    <FaWhatsapp className="text-green-500" />
+                    WhatsApp
+                  </h3>
+                  <a
+                    href="https://wa.link/tpbnvt"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-base text-black hover:underline transition-all flex items-center gap-2"
+                  >
+                    Chat on WhatsApp
+                  </a>
+                </div>
+                
+                <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                  <h3 className="flex items-center text-lg font-semibold mb-2 text-black gap-2">
+                    <FaMapMarkerAlt className="text-red-500" />
+                    Location
+                  </h3>
+                  <p className="text-base text-black">
+                    Kosovo, Europe
+                  </p>
                 </div>
 
                 <div>
                   <h3 className="text-lg font-semibold mb-4 text-black">Connect with me</h3>
                   <SocialMedia />
+                </div>
+
+                <div className="mt-6 pt-6 border-t border-gray-200">
+                  <div className="flex flex-col gap-2">
+                    <p className="text-sm text-gray-600">
+                      Prefer a quick response? Send me a direct message through WhatsApp or email.
+                    </p>
+                    <p className="text-sm text-gray-600">
+                      For professional inquiries, please include project details and timeline.
+                    </p>
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -243,3 +285,8 @@ export default function Contact() {
     </div>
   );
 }
+
+// Add this to your global CSS or as a class
+// .bg-grid-pattern {
+//   background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='0.05' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='1.5'/%3E%3Ccircle cx='13' cy='13' r='1.5'/%3E%3C/g%3E%3C/svg%3E");
+// }

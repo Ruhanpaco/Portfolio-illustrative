@@ -4,8 +4,7 @@ import { useState, ChangeEvent, FormEvent } from 'react';
 import { motion } from 'framer-motion';
 import SocialMedia from '../components/SocialMedia';
 import { sendEmail } from '../lib/email';
-import { FaWhatsapp, FaEnvelope, FaMapMarkerAlt, FaPhoneAlt } from 'react-icons/fa';
-import Link from 'next/link';
+import { FaWhatsapp, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 
 export default function Contact() {
   const [formData, setFormData] = useState({

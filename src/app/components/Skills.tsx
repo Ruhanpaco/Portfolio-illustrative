@@ -17,7 +17,6 @@ import {
   FaSwift,
   FaVuejs,
   FaGit,
-  FaFirefoxBrowser,
   FaDatabase,
   FaSlack,
 } from "react-icons/fa";

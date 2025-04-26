@@ -11,6 +11,7 @@ import { FcGoogle } from 'react-icons/fc';
 import { SiNextdotjs, SiReact, SiTailwindcss, SiTypescript } from 'react-icons/si';
 import { FiMapPin } from 'react-icons/fi';
 import { BiLogoPostgresql } from "react-icons/bi";
+import Script from 'next/script';
 
 export default function Home() {
   // Sample projects data
@@ -326,6 +327,39 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* JSON-LD Structured Data for Projects */}
+      <Script
+        id="projects-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "itemListElement": projects.map((project, index) => ({
+              "@type": "ListItem",
+              "position": index + 1,
+              "item": {
+                "@type": "SoftwareApplication",
+                "name": project.title,
+                "description": project.description,
+                "applicationCategory": "WebApplication",
+                "operatingSystem": "All",
+                "url": project.liveDemo || project.github || project.Live,
+                "offers": {
+                  "@type": "Offer",
+                  "price": "0",
+                  "priceCurrency": "USD"
+                },
+                "author": {
+                  "@type": "Person",
+                  "name": "Ruhan Pacolli"
+                }
+              }
+            }))
+          })
+        }}
+      />
     </main>
   );
 }

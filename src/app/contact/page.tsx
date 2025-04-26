@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import SocialMedia from '../components/SocialMedia';
 import { sendEmail } from '../lib/email';
 import { FaWhatsapp, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
+import Script from 'next/script';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -281,6 +282,57 @@ export default function Contact() {
           </div>
         </motion.div>
       )}
+
+      {/* Contact Schema for SEO */}
+      <Script
+        id="contact-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ContactPage",
+            "name": "Contact Ruhan Pacolli",
+            "description": "Get in touch with Ruhan Pacolli for web development services and inquiries.",
+            "mainEntity": {
+              "@type": "Organization",
+              "name": "Ruhan Pacolli - Web Development Services",
+              "description": "Professional web development services specializing in React.js, Next.js, and modern web applications.",
+              "url": "https://ruhanpacolli.online",
+              "email": "hi@ruhanpacolli.online",
+              "location": {
+                "@type": "Place",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressCountry": "Kosovo"
+                }
+              },
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "contactType": "customer service",
+                "email": "hi@ruhanpacolli.online",
+                "url": "https://ruhanpacolli.online/contact"
+              },
+              "makesOffer": [
+                {
+                  "@type": "Offer",
+                  "name": "Website Development",
+                  "description": "Custom website development using modern technologies"
+                },
+                {
+                  "@type": "Offer",
+                  "name": "Frontend Development",
+                  "description": "Responsive and interactive UI development with React.js and Next.js"
+                },
+                {
+                  "@type": "Offer",
+                  "name": "Web Application Development",
+                  "description": "Full-stack web application development"
+                }
+              ]
+            }
+          })
+        }}
+      />
     </div>
   );
 }

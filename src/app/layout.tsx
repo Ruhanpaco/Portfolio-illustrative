@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/footer";
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from '@vercel/analytics/next';
-
+import Script from 'next/script';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,27 +18,36 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Ruhan Pacolli | Full-stack developer",
-  description: "Hi, I'm Ruhan Pacolli, a Web Developer passionate about building web applications, i mostly work with React, Next.js, Tailwind CSS, and TypeScript, here you will learn more about me and get to know with my work.",
+  title: "Ruhan Pacolli | Full-Stack Developer | Kosovo",
+  description: "Professional web developer specializing in React.js, Next.js, and modern UI/UX. Offering custom website development, responsive design, and e-commerce solutions. Based in Kosovo, working worldwide.",
+  keywords: "web developer, full-stack developer, freelance developer, react developer, nextjs, Kosovo web developer, UI/UX design, responsive websites, custom web development",
   icons: {
-    icon: "https://ruhanpacolli.online/assets/img/logo.png", // Favicon
+    icon: "https://ruhanpacolli.online/assets/img/logo.png",
   },
   alternates: {
     canonical: "https://ruhanpacolli.online",
   },
   openGraph: {
-    title: "Ruhan Pacolli",
-    description: "Hi, I'm Ruhan Pacolli, a Web Developer passionate about building web applications, i mostly work with React, Next.js, Tailwind CSS, and TypeScript, here you will learn more about me and get to know with my work.",
+    title: "Ruhan Pacolli | Full-Stack Developer & Web Designer",
+    description: "Professional web developer specializing in React.js, Next.js, and modern UI/UX. Offering custom website development, responsive design, and e-commerce solutions.",
     url: "https://ruhanpacolli.online",
     siteName: "Ruhan Pacolli Portfolio",
+    locale: "en_US",
+    type: "website",
     images: [
       {
-        url: "https://ruhanpacolli.online/assets/img/logo.png",
-        width: 800,
-        height: 800,
-        alt: "Ruhan Pacolli",
+        url: "https://ruhanpacolli.online/assets/img/profile.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Ruhan Pacolli - Full-Stack Developer",
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ruhan Pacolli | Full-Stack Developer",
+    description: "Professional web developer specializing in React.js, Next.js, and modern UI/UX design.",
+    images: ["https://ruhanpacolli.online/assets/img/profile.jpg"],
   },
   robots: {
     index: true,
@@ -52,9 +61,9 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: 'your-google-verification-code', // Replace with your Google verification code
+    google: 'your-google-verification-code', // Replace with your actual verification code
   },
-  authors: [{ name: 'Ruhan Pacolli' }],
+  authors: [{ name: 'Ruhan Pacolli', url: 'https://ruhanpacolli.online' }],
   creator: 'Ruhan Pacolli',
   publisher: 'Ruhan Pacolli',
   formatDetection: {
@@ -62,6 +71,7 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
+  category: 'technology',
 };
 
 export default function RootLayout({
@@ -71,6 +81,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
@@ -79,6 +92,31 @@ export default function RootLayout({
         <Footer />
         <Analytics />
         <SpeedInsights />
+        
+        {/* Structured data for personal portfolio */}
+        <Script
+          id="schema-structured-data"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              "name": "Ruhan Pacolli",
+              "url": "https://ruhanpacolli.online",
+              "image": "https://ruhanpacolli.online/assets/img/profile.jpg",
+              "jobTitle": "Full-Stack Developer",
+              "worksFor": {
+                "@type": "Organization",
+                "name": "Freelance"
+              },
+              "sameAs": [
+                "https://github.com/Ruhanpaco",
+                "https://wa.link/tpbnvt"
+              ],
+              "knowsAbout": ["Web Development", "React.js", "Next.js", "JavaScript", "TypeScript", "UI/UX Design"]
+            })
+          }}
+        />
       </body>
     </html>
   );

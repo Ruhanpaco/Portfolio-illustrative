@@ -325,6 +325,11 @@ export default function Contact() {
                 },
                 {
                   "@type": "Offer",
+                  "name": "Backend Development",
+                  "description": "Backend development with typescript, node.js, express, mongodb, mysql, postgresql, redis, etc."
+                },
+                {
+                  "@type": "Offer",
                   "name": "Web Application Development",
                   "description": "Full-stack web application development"
                 }

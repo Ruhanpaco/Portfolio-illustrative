@@ -19,8 +19,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Ruhan Pacolli | Full-Stack Developer | Kosovo",
-  description: "Professional web developer specializing in React.js, Next.js, and modern UI/UX. Offering custom website development, responsive design, and e-commerce solutions. Based in Kosovo, working worldwide.",
-  keywords: "web developer, full-stack developer, freelance developer, react developer, nextjs, Kosovo web developer, UI/UX design, responsive websites, custom web development",
+  description: "Professional web developer specializing in React.js, Next.js, and modern UI/UX. Offering custom website development, responsive design, and full-stack development services. Based in Kosovo, working worldwide.",
+  keywords: "web developer, full-stack developer, freelance developer, react developer, nextjs, Kosovo web developer, UI/UX design, responsive websites, custom web development, full-stack developer freelance, full-stack developer Kosovo, 6+ years of experience developer.",
   icons: {
     icon: "https://ruhanpacolli.online/assets/img/logo.png",
   },

@@ -30,12 +30,12 @@ const certifications: Certification[] = [
 const projects: Project[] = [
   {
     name: 'SaaS Landing Page',
-    link: 'https://saas-landing-page.vercel.app/',
+    link: 'https://saas-landing-page-rose.vercel.app/',
     description: 'A modern landing page for a SaaS product, designed with Tailwind CSS and React.',
   },
   {
     name: 'Luxury Hotel Website',
-    link: 'https://luxury-hotel.vercel.app/',
+    link: 'https://luxury-hotel-website-sable.vercel.app/',
     description: 'A responsive website for a luxury hotel, featuring elegant design and smooth animations.',
   },
   {
@@ -55,7 +55,7 @@ const projects: Project[] = [
   },
   {
   name: 'KV Prishtina Junior',
-  link: 'https://kvprishtinajunior.vercel.app/',
+  link: 'https://kvprishtinajr.com/',
   description: 'A volleyball website collaborated with Kv prishtina Junior, a clean and sleek design, with a natural color, and easy structure around the website, with real time data',
 },
  {
@@ -67,15 +67,10 @@ const projects: Project[] = [
 
 const education: Education[] = [
   {
-    degree: 'Middle School Certification',
-    institution: 'Don Bosco Kosova',
-    year: '2016 - 2024',
-  },
-  {
     degree: 'High School Diploma',
     institution: 'America School Of Kosovo (ASK)',
     year: '2024 - Present',
-  },
+  }
 ];
 
 // New volunteer/extracurricular data

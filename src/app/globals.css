@@ -37,3 +37,66 @@ body {
 .bg-grid-pattern {
   background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='0.05' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='1.5'/%3E%3Ccircle cx='13' cy='13' r='1.5'/%3E%3C/g%3E%3C/svg%3E");
 }
+
+/* Print-specific styles */
+@media print {
+  body {
+    /* Reset background and text color for printing */
+    background-color: white !important;
+    color: black !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  header, 
+  footer,
+  .print-hidden {
+    display: none !important;
+  }
+
+  /* Ensure main content takes full width */
+  main {
+    padding-top: 0 !important; /* Remove padding added for fixed header */
+    padding-bottom: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  /* Adjust card styling for print */
+  .resume-section-card,
+  .resume-header-card {
+    box-shadow: none !important;
+    border: 1px solid #e5e7eb !important; /* Light border for definition */
+    padding: 1rem !important; /* Reduce padding slightly */
+    margin-bottom: 1rem !important;
+    page-break-inside: avoid;
+  }
+
+  /* Ensure grid columns don't break weirdly */
+  .resume-grid {
+    display: block !important; /* Stack columns */
+  }
+  
+  .resume-column-left,
+  .resume-column-right {
+    width: 100% !important;
+    page-break-inside: avoid;
+  }
+
+  a[href^="http"]::after, 
+  a[href^="https"]::after {
+    content: ""; /* Don't show URLs */
+  }
+
+  a {
+    text-decoration: none !important;
+    color: inherit !important;
+  }
+  
+  /* Remove animations */
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}

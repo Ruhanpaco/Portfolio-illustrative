@@ -329,8 +329,49 @@ export default function Resume() {
         </div>
       </div>
 
-      {/* --- Resume Schema for SEO (Keep existing) --- */} 
-      {/* ... */} 
+      {/* --- Resume Schema for SEO --- */} 
+      <Script
+        id="resume-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Ruhan Pacolli",
+            "jobTitle": "Full-Stack Developer",
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "Kosovo"
+            },
+            "email": "hi@ruhanpacolli.online",
+            "url": "https://ruhanpacolli.online",
+            "sameAs": [
+              "https://github.com/Ruhanpaco",
+              "https://wa.link/tpbnvt"
+            ],
+            "hasCredential": certifications.map(cert => ({
+              "@type": "EducationalOccupationalCredential",
+              "credentialCategory": "certification",
+              "name": cert.name,
+              "recognizedBy": {
+                "@type": "Organization",
+                "name": cert.institution
+              },
+              "validFrom": cert.year
+            })),
+            "hasOccupation": {
+              "@type": "Occupation",
+              "name": "Full-Stack Developer",
+              "skills": skills.join(", ")
+            },
+            "alumniOf": education.map(edu => ({
+              "@type": "EducationalOrganization",
+              "name": edu.institution
+            })),
+            "knowsLanguage": languages.map(lang => lang.split(" ")[1])
+          })
+        }}
+      />
     </main>
   );
 }
@@ -371,6 +412,3 @@ const TimelineItem = ({ title, subtitle, period, children, isLast = false, iconO
     {children}
   </div>
 );
-
-// Existing Script for Schema needed here...
-// <Script id="resume-schema" ... />

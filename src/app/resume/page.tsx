@@ -18,7 +18,6 @@ import {
   FaDownload, // Added Download Icon
   FaClock, // Added Clock Icon
 } from 'react-icons/fa';
-import Image from 'next/image';
 import Script from 'next/script';
 import { useState, useEffect } from 'react'; // Import useState and useEffect
 

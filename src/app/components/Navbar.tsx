@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { FaHome, FaFileAlt, FaComments, FaBars, FaTimes } from 'react-icons/fa';
+import { FaHome, FaFileAlt, FaComments, FaBars, FaTimes, FaCog } from 'react-icons/fa';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -37,6 +37,7 @@ export default function Navbar() {
   const navLinks = [
     { href: '/', label: 'Home', icon: FaHome },
     { href: '/resume', label: 'Resume', icon: FaFileAlt },
+    { href: '/services', label: 'Services', icon: FaCog },
     { href: '/contact', label: 'Contact', icon: FaComments },
   ];
 

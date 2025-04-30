@@ -100,3 +100,35 @@ body {
     animation: none !important;
   }
 }
+
+/* === Scroll Snap Styles for Services Page === */
+.scroll-snap-container {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh; 
+  overscroll-behavior: contain; 
+}
+
+.scroll-snap-section {
+  scroll-snap-align: start;
+  height: 100vh; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%; 
+  position: relative; 
+  padding-left: 1rem; 
+  padding-right: 1rem;
+}
+
+/* Optional: Hide scrollbar for cleaner look (use with caution) */
+/*
+.scroll-snap-container::-webkit-scrollbar {
+  display: none;
+}
+.scroll-snap-container {
+  -ms-overflow-style: none;  
+  scrollbar-width: none;  
+}
+*/

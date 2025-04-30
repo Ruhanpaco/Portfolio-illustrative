@@ -16,9 +16,11 @@ import {
   FaGlobeAmericas,
   FaLink, // Added for project links
   FaDownload, // Added Download Icon
+  FaClock, // Added Clock Icon
 } from 'react-icons/fa';
 import Image from 'next/image';
 import Script from 'next/script';
+import { useState, useEffect } from 'react'; // Import useState and useEffect
 
 // Data
 const certifications: Certification[] = [
@@ -51,6 +53,12 @@ const certifications: Certification[] = [
     institution: 'Microsoft (via Coursera)',
     year: '2025',
     file: '/assets/files/Coursera_microsoft_azure_SQL.pdf',
+  },
+  {
+    name: 'Essentials with Azure Fundamentals',
+    institution: 'Microsoft (via Coursera)',
+    year: '2025',
+    file: '/assets/files/Coursera_Microsoft_azure_foundaction.pdf',
   },
 ];
 
@@ -148,75 +156,85 @@ interface Extracurricular {
 }
 
 export default function Resume() {
-  const handlePrint = () => {
-    window.print();
-  };
+  // Local Time State & Effect
+  const [localTime, setLocalTime] = useState('');
+  useEffect(() => {
+    const updateTime = () => {
+      const time = new Date().toLocaleTimeString('en-US', {
+        timeZone: 'Europe/Belgrade', // GMT+1 (Kosovo timezone)
+        hour: '2-digit',
+        minute: '2-digit',
+        // second: '2-digit', // Optional: remove seconds for less clutter
+        hour12: true, // Optional: use 12-hour format
+      });
+      setLocalTime(time);
+    };
+
+    updateTime();
+    const interval = setInterval(updateTime, 1000 * 60); // Update every minute
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-white to-gray-50 text-gray-800 pt-24 sm:pt-28 pb-16 px-4 print:pt-8 print:bg-white">
+    <main className="min-h-screen bg-white text-black pt-24 sm:pt-28 pb-16 px-4 print:pt-4 print:bg-white">
       <div className="max-w-6xl mx-auto">
-        {/* Header Section */} 
+        {/* Header Section - Minor size adjustments */}
         <motion.div 
-          className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 mb-8 sm:mb-10 border border-gray-200 resume-header-card"
+          className="bg-white rounded-2xl p-6 sm:p-8 mb-10 sm:mb-12 border-2 border-black resume-header-card"
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
           <div className="flex flex-col md:flex-row items-center gap-6 sm:gap-8">
-            <div className="w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 relative flex-shrink-0 print:w-24 print:h-24">
-              <Image
-                src="/assets/img/profile.jpg"
-                alt="Ruhan Pacolli"
-                fill
-                className="rounded-full object-cover shadow-md border-4 border-white print:border-gray-300"
-                priority
-              />
-            </div>
             <div className="flex-1 text-center md:text-left">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black mb-1.5 sm:mb-2 print:text-3xl">Ruhan Pacolli</h1>
-              <p className="text-lg sm:text-xl text-gray-600 mb-4 sm:mb-5 print:text-lg">Full-Stack Developer</p>
-              {/* Contact Info & Download Button */}
-              <div className="flex flex-wrap items-center gap-x-4 gap-y-3 justify-center md:justify-start text-sm sm:text-base text-gray-700 print:text-xs">
-                <a href="mailto:hi@ruhanpacolli.online" className="flex items-center gap-1.5 hover:text-black transition-colors">
+              {/* Adjusted heading sizes */}
+              <h1 className="text-4xl sm:text-5xl font-bold text-black mb-1.5 sm:mb-2 print:text-3xl">Ruhan Pacolli</h1>
+              <p className="text-xl sm:text-2xl text-black/80 mb-4 sm:mb-5 print:text-lg">Full-Stack Developer</p>
+              {/* Increased contact info size slightly */}
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-3 justify-center md:justify-start text-base text-black print:text-xs">
+                <a href="mailto:hi@ruhanpacolli.online" className="flex items-center gap-1.5 hover:opacity-70 transition-opacity">
                   <FaEnvelope /> hi@ruhanpacolli.online
                 </a>
-                <a href="https://github.com/Ruhanpaco" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-black transition-colors">
+                <a href="https://github.com/Ruhanpaco" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:opacity-70 transition-opacity">
                   <FaGithub /> GitHub
                 </a>
-                <a href="https://wa.link/tpbnvt" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-black transition-colors">
+                <a href="https://wa.link/tpbnvt" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:opacity-70 transition-opacity">
                   <FaWhatsapp /> WhatsApp
                 </a>
                 <span className="flex items-center gap-1.5">
                   <FaMapMarkerAlt /> Kosovo
                 </span>
-                {/* Download Button */}
-                <button 
-                  onClick={handlePrint}
-                  className="print-hidden flex items-center gap-1.5 px-3 py-1.5 bg-gray-100 border border-gray-300 rounded-lg hover:bg-gray-200 hover:border-gray-400 transition-colors text-gray-800 text-sm font-medium"
+                 <span className="flex items-center gap-1.5 text-black">
+                    <FaClock /> {localTime} (CET)
+                 </span>
+                 <a 
+                  href="/assets/files/Ruhan_Pacolli_Resume.pdf"
+                  download="Ruhan_Pacolli_Resume.pdf"
+                  className="print-hidden flex items-center gap-1.5 px-3 py-1.5 bg-white border-2 border-black rounded-lg hover:bg-black hover:text-white transition-colors text-black text-sm font-medium"
                   aria-label="Download Resume as PDF"
                 >
                   <FaDownload /> Download PDF
-                </button>
+                </a>
               </div>
             </div>
           </div>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 resume-grid">
+        <div className="grid md:grid-cols-3 gap-x-10 lg:gap-x-16 resume-grid">
           {/* Left Column */} 
           <motion.div 
-            className="md:col-span-1 space-y-6 sm:space-y-8 lg:space-y-10 resume-column-left"
+            className="md:col-span-1 space-y-10 lg:space-y-12 resume-column-left"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            {/* Section Card Component (Example) */} 
             <ResumeSection icon={FaCode} title="Skills">
-              <div className="flex flex-wrap gap-1 print:gap-0.5">
+              {/* Skill Tags - Black border */}
+              <div className="flex flex-wrap gap-2 print:gap-0.5">
                 {skills.map((skill, index) => (
                   <span 
                     key={index}
-                    className="px-2 py-0.5 bg-gray-100 border border-gray-200 rounded-full text-xs font-medium text-gray-800 hover:bg-gray-200 transition-colors print:px-1 print:text-[10px] print:border-gray-300 print:bg-white"
+                    className="px-3 py-1 bg-white border border-black rounded-full text-sm font-medium text-black print:px-1 print:text-[10px] print:border-black print:bg-white"
                   >
                     {skill}
                   </span>
@@ -225,9 +243,10 @@ export default function Resume() {
             </ResumeSection>
 
             <ResumeSection icon={FaGlobeAmericas} title="Languages">
-              <ul className="space-y-1 print:space-y-0.5">
+              {/* Increased list item size */} 
+              <ul className="space-y-1.5 print:space-y-0.5">
                 {languages.map((lang, index) => (
-                  <li key={index} className="flex items-center gap-2 text-sm sm:text-base text-gray-700 print:text-xs">
+                  <li key={index} className="flex items-center gap-2 text-base text-black print:text-xs">
                     {lang} 
                   </li>
                 ))}
@@ -235,26 +254,24 @@ export default function Resume() {
             </ResumeSection>
 
             <ResumeSection icon={FaCertificate} title="Certifications">
-              <div className="space-y-3 print:space-y-2">
+              <div className="space-y-4 print:space-y-2">
                 {certifications.map((cert, index) => (
-                  <div key={index} className="border border-gray-200 rounded-lg p-3 sm:p-4 bg-white hover:shadow-sm transition-shadow print:p-2 print:border-gray-300 print:shadow-none">
-                    <div className="flex justify-between items-start mb-1 print:mb-0.5">
-                      <h3 className="font-semibold text-sm sm:text-base text-black print:text-xs print:font-medium">{cert.name}</h3>
-                      {/* Optional: Icon per cert type? */} 
-                    </div>
-                    <p className="text-xs sm:text-sm text-gray-600 print:text-[10px]">{cert.institution}</p>
-                    <p className="text-xs sm:text-sm text-gray-500 mb-2 print:text-[10px] print:mb-1">{cert.year}</p>
+                  <div key={index} className="border border-black rounded-lg p-3 bg-white print:p-2 print:border-black">
+                    {/* Increased font sizes */}
+                    <h3 className="font-semibold text-base text-black print:text-xs print:font-medium">{cert.name}</h3>
+                    <p className="text-sm text-black/80 print:text-[10px]">{cert.institution}</p>
+                    <p className="text-sm text-black/60 mb-1.5 print:text-[10px] print:mb-0.5">{cert.year}</p>
                     {cert.file ? (
                       <a 
                         href={cert.file}
                         target="_blank" 
                         rel="noopener noreferrer" 
-                        className="print-hidden inline-flex items-center gap-1 text-xs sm:text-sm text-black font-medium hover:underline"
+                        className="print-hidden inline-flex items-center gap-1 text-sm text-black font-medium hover:underline"
                       >
                         <FaFilePdf /> View Certificate
                       </a>
                     ) : (
-                      <p className="print-hidden text-xs sm:text-sm text-gray-400 italic">
+                      <p className="print-hidden text-sm text-black/50 italic">
                         Certificate available after May 5th
                       </p>
                     )}
@@ -266,26 +283,25 @@ export default function Resume() {
 
           {/* Right Column */} 
           <motion.div 
-            className="md:col-span-2 space-y-6 sm:space-y-8 lg:space-y-10 resume-column-right"
+            className="md:col-span-2 space-y-10 lg:space-y-12 resume-column-right"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
             {/* --- Experience Section --- */} 
             <ResumeSection icon={FaBriefcase} title="Experience">
-              {/* Single Experience Item - Apply loop if needed */} 
               <TimelineItem 
                 title="Salesman" 
                 subtitle="Tecnomarket by Mabetex" 
                 period="June 2024 - August 2024"
               >
-                <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm text-gray-600 mt-1 print:text-[10px] print:leading-snug">
+                 {/* Increased list item size */}
+                <ul className="list-disc list-inside space-y-1.5 text-base text-black/90 mt-1.5 print:text-[10px] print:leading-snug">
                   <li>Assisted customers with product selection and inquiries</li>
                   <li>Maintained an organized inventory and displayed products attractively</li>
                   <li>Collaborated with team members to achieve sales targets</li>
                 </ul>
               </TimelineItem>
-              {/* Add more TimelineItems here if you have more experience */}
             </ResumeSection>
 
             {/* --- Education Section --- */} 
@@ -303,22 +319,20 @@ export default function Resume() {
 
             {/* --- Projects Section --- */} 
             <ResumeSection icon={FaCode} title="Projects">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 print:grid-cols-1 print:gap-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 print:grid-cols-1 print:gap-2">
                 {projects.map((project, index) => (
-                  <div // Changed from <a> to <div> for print
+                  <div 
                     key={index}
-                    // href={project.link} - Removed for print
-                    // target="_blank" - Removed for print
-                    // rel="noopener noreferrer" - Removed for print
-                    className="group block p-3 sm:p-4 rounded-lg border border-gray-200 bg-white hover:border-gray-300 hover:shadow-sm transition-all print:p-2 print:border-gray-300 print:shadow-none"
+                    className="group block p-4 rounded-lg border border-black bg-white hover:bg-black/5 transition-all print:p-2 print:border-black"
                   >
-                    <h3 className="font-semibold text-sm sm:text-base text-black mb-1 group-hover:text-blue-600 transition-colors print:text-xs print:font-medium print:text-black">{project.name}</h3>
-                    <p className="text-xs sm:text-sm text-gray-600 leading-snug mb-2 print:text-[10px] print:leading-snug">{project.description}</p>
-                    <a // Link still available on screen
+                    {/* Increased font sizes */}
+                    <h3 className="font-semibold text-base text-black mb-1 group-hover:opacity-70 transition-opacity print:text-xs print:font-medium">{project.name}</h3>
+                    <p className="text-sm text-black/80 leading-snug mb-2.5 print:text-[10px] print:leading-snug">{project.description}</p>
+                    <a 
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="print-hidden text-xs sm:text-sm font-medium text-blue-600 group-hover:underline flex items-center gap-1"
+                      className="print-hidden text-sm font-medium text-black hover:underline flex items-center gap-1"
                     >
                       <FaLink size={12}/> View Project
                     </a>
@@ -329,7 +343,7 @@ export default function Resume() {
 
             {/* --- Extracurricular Activities Section --- */} 
             <ResumeSection icon={FaVolleyballBall} title="Extracurricular Activities">
-              {extracurricular.map((activity, index) => (
+               {extracurricular.map((activity, index) => (
                 <TimelineItem 
                   key={index}
                   title={activity.role} 
@@ -338,7 +352,8 @@ export default function Resume() {
                   isLast={index === extracurricular.length - 1}
                   iconOverride={activity.role === 'Social Media Manager' ? FaHashtag : FaVolleyballBall}
                 >
-                  <p className="text-xs sm:text-sm text-gray-600 mt-1 print:text-[10px]">{activity.description}</p>
+                  {/* Increased description size */}
+                  <p className="text-base text-black/90 mt-1.5 print:text-[10px]">{activity.description}</p>
                 </TimelineItem>
               ))}
             </ResumeSection>
@@ -396,17 +411,17 @@ export default function Resume() {
 
 // --- Helper Components --- 
 
-// Section Card Wrapper
+// Section Component - Adjusted heading size
 const ResumeSection = ({ icon: Icon, title, children }: { icon: React.ElementType, title: string, children: React.ReactNode }) => (
-  <div className="bg-white rounded-2xl shadow-md p-5 sm:p-6 border border-gray-200 resume-section-card">
-    <h2 className="text-xl sm:text-2xl font-bold text-black mb-4 sm:mb-5 flex items-center gap-2.5 print:text-lg print:mb-2">
-      <Icon className="text-gray-700 print:text-base" /> {title}
+  <div className="bg-white rounded-xl p-5 sm:p-6 border-2 border-black resume-section print:border print:border-black print:rounded-lg print:p-3 print:shadow-none print:mb-4">
+    <h2 className="text-2xl font-bold text-black mb-4 flex items-center gap-2.5 print:text-lg print:mb-2">
+      <Icon className="text-black print:text-base" /> {title}
     </h2>
     {children}
   </div>
 );
 
-// Timeline Item Component
+// Timeline Item Component - Adjusted font sizes
 const TimelineItem = ({ title, subtitle, period, children, isLast = false, iconOverride: IconOverride }: {
   title: string;
   subtitle: string;
@@ -416,17 +431,21 @@ const TimelineItem = ({ title, subtitle, period, children, isLast = false, iconO
   iconOverride?: React.ElementType;
 }) => (
   <div className={`relative pl-6 ${isLast ? '' : 'pb-6 print:pb-3'} print:pl-4`}>
-    {/* Vertical line */}
-    {!isLast && <div className="absolute left-[7px] top-[12px] h-full w-0.5 bg-gray-200 print:hidden"></div>}
-    {/* Dot */}
-    <div className="absolute left-0 top-[4px] w-4 h-4 bg-gray-200 rounded-full border-4 border-white print:w-2 print:h-2 print:top-[6px] print:border-2">
-      {IconOverride && <IconOverride className="absolute inset-0 m-auto text-[8px] text-gray-600 print:hidden" />} 
+    {/* Vertical line - Black */}
+    {!isLast && <div className="absolute left-[7px] top-[12px] h-full w-0.5 bg-black print:hidden"></div>}
+    {/* Dot - Black with white border */}
+    <div className="absolute left-0 top-[4px] w-4 h-4 bg-black rounded-full border-2 border-white ring-1 ring-black print:w-2 print:h-2 print:top-[6px] print:border print:border-black print:bg-white">
+      {IconOverride && <IconOverride className="absolute inset-0 m-auto text-[8px] text-white print:hidden" />} 
     </div>
+    {/* Text - Black */} 
     <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-0.5">
-      <h3 className="text-base sm:text-lg font-semibold text-black print:text-sm print:font-medium">{title}</h3>
-      <span className="text-xs sm:text-sm text-gray-500 mt-0.5 sm:mt-0 flex-shrink-0 sm:ml-2 print:text-[10px]">{period}</span>
+      {/* Increased title size */}
+      <h3 className="text-lg font-semibold text-black print:text-sm print:font-medium">{title}</h3>
+      {/* Increased period size */}
+      <span className="text-sm text-black/70 mt-0.5 sm:mt-0 flex-shrink-0 sm:ml-2 print:text-[10px]">{period}</span>
     </div>
-    <p className="text-sm sm:text-base font-medium text-gray-600 mb-1 print:text-xs print:mb-0.5">{subtitle}</p>
+    {/* Increased subtitle size */}
+    <p className="text-base font-medium text-black/90 mb-1.5 print:text-xs print:mb-0.5">{subtitle}</p>
     {children}
   </div>
 );

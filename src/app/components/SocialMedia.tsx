@@ -1,8 +1,7 @@
 import { FaTwitter, FaGithub, FaInstagram} from 'react-icons/fa';
-import { SiKofi } from "react-icons/si";
 import { motion } from 'framer-motion'; 
 import { MdEmail } from "react-icons/md";
-
+import { LiaLinkedin } from 'react-icons/lia';
 const SocialMedia = () => {
   return (
     <motion.div 
@@ -28,7 +27,7 @@ const SocialMedia = () => {
         <FaGithub className="text-black" size={24} />
       </a>
       <a
-        href="https://instagram.com/Ruhanpacollidev"
+        href="https://instagram.com/FRuhanpacodev"
         target="_blank"
         rel="noopener noreferrer"
         className="bg-white border-2 border-black rounded-lg p-3 hover:bg-gray-100 transition duration-300"
@@ -36,12 +35,12 @@ const SocialMedia = () => {
         <FaInstagram className="text-black" size={24} />
       </a>
       <a
-        href="https://ko-fi.com/ruhanpaco"
+        href="https://www.linkedin.com/in/ruhan-pacolli-a982a2364/"
         target="_blank"
         rel="noopener noreferrer"
         className="bg-white border-2 border-black rounded-lg p-3 hover:bg-gray-100 transition duration-300"
       >
-        <SiKofi className="text-black" size={24} />
+        <LiaLinkedin className="text-black" size={24} />
       </a>
       <a
       href="mailto:hi@ruhanpacolli.online"

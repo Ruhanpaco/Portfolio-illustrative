@@ -8,7 +8,7 @@ import Skills from './components/Skills';
 import ByTheNumbers from './components/ByTheNumbers'; // Import the updated component
 import { FaGithub, FaExternalLinkAlt, FaLayerGroup, FaDesktop, FaServer, FaMobileAlt, FaLightbulb, FaCloudUploadAlt } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
-import { SiNextdotjs, SiReact, SiTailwindcss, SiTypescript } from 'react-icons/si';
+import { SiAxios, SiMongodb, SiNextdotjs, SiNodedotjs, SiReact, SiTailwindcss, SiTypescript, SiCalendly } from 'react-icons/si';
 import { FiMapPin } from 'react-icons/fi';
 import { BiLogoPostgresql } from "react-icons/bi";
 import Script from 'next/script';
@@ -19,15 +19,19 @@ export default function Home() {
   const projects = [
     {
       id: 1,
-      title: "Saas Landing Page",
-      description: "This modern SaaS platform showcases enterprise solutions through immersive design and fluid animations. Built with Next.js and React, it features a foundation page highlighting system architecture, a services section demonstrating product offerings, and a contact page. The dark theme with gradient effects creates an engaging, professional experience.",
-      image: "/assets/img/saas.png",
-      github: "https://github.com/Ruhanpaco/saas-landing-page",
-      liveDemo: "https://saas-landing-page-rose.vercel.app/",
+      title: "Domain Intelligence Tool",
+      description: "A comprehensive domain reconnaissance tool providing detailed insights into domains, their DNS records, SSL certificates, and more. Designed for security researchers, penetration testers, and system administrators to gather extensive information about any domain.",
+      image: "/assets/img/whois.png",
+      github: null,
+      liveDemo: "https://whoislookup.ruhanpacolli.online/",
       technologies: [
         { name: "Next.js", icon: <SiNextdotjs className="text-black text-xl" /> },
         { name: "React", icon: <SiReact className="text-blue-500 text-xl" /> },
         { name: "Tailwind CSS", icon: <SiTailwindcss className="text-blue-400 text-xl" /> },
+        { name: "TypeScript", icon: <SiTypescript className="text-blue-600 text-xl" /> },
+        { name: "Axios", icon: <SiAxios className="text-black text-xl" /> },
+        { name: "Node.js", icon: <SiNodedotjs className="text-green-500 text-xl" /> },
+        { name: "MongoDB", icon: <SiMongodb className="text-green-600 text-xl" /> },
       ],
     },
     {
@@ -484,6 +488,28 @@ export default function Home() {
               </motion.div>
             ))}
           </div>
+
+          {/* Schedule a Meeting Button */}
+          <motion.div 
+            className="mt-16 text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            <div className="inline-block">
+              <a 
+                href="https://calendly.com/ruhanpaco/schedule-a-meeting" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-3 px-10 py-4 bg-[#0060FF] text-white rounded-xl hover:bg-[#0052DB] transition-all duration-300 text-base font-medium shadow-md hover:shadow-lg"
+              >
+                <SiCalendly className="text-xl" />
+                <span>Schedule a Meeting</span>
+              </a>
+              <p className="text-sm text-gray-500 mt-3">Powered by Calendly</p>
+            </div>
+          </motion.div>
         </div>
       </section>
 

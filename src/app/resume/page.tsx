@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image'; // Add Image import
 import {
   FaEnvelope,
   FaGithub,
@@ -62,6 +63,11 @@ const certifications: Certification[] = [
 ];
 
 const projects: Project[] = [
+  {
+    name: 'Domain Intelligence Tool',
+    link: 'https://whoislookup.ruhanpacolli.online/',
+    description: 'A comprehensive domain reconnaissance tool providing detailed insights into domains, their DNS records, SSL certificates, and more. Designed for security researchers, penetration testers, and system administrators to gather extensive information about any domain.',
+  },
   {
     name: 'SaaS Landing Page',
     link: 'https://saas-landing-page-rose.vercel.app/',
@@ -153,6 +159,41 @@ interface Extracurricular {
   period: string;
   description: string;
 }
+
+// Define the Experience interface
+interface Experience {
+  title: string;
+  company: string;
+  logo: string;
+  period: string;
+  responsibilities?: string[];
+}
+
+// Add experiences data
+const experiences: Experience[] = [
+  {
+    title: "Junior Software Developer Intern",
+    company: "Pioneering People",
+    logo: "/assets/img/peoneer.png",
+    period: "July 2024 - Present",
+    responsibilities: [
+      "Feature research and planning",
+      "Prototyping using current tech stack (Laravel 11, MongoDB and AWS)",
+      "Data informed design ideas"
+    ]
+  },
+  {
+    title: "Salesman",
+    company: "Tecnomarket by Mabetex",
+    logo: "/assets/img/tecno.png",
+    period: "June 2024 - August 2024",
+    responsibilities: [
+      "Assisted customers with product selection and inquiries",
+      "Maintained an organized inventory and displayed products attractively",
+      "Collaborated with team members to achieve sales targets"
+    ]
+  }
+];
 
 export default function Resume() {
   // Local Time State & Effect
@@ -289,18 +330,24 @@ export default function Resume() {
           >
             {/* --- Experience Section --- */} 
             <ResumeSection icon={FaBriefcase} title="Experience">
-              <TimelineItem 
-                title="Salesman" 
-                subtitle="Tecnomarket by Mabetex" 
-                period="June 2024 - August 2024"
-              >
-                 {/* Increased list item size */}
-                <ul className="list-disc list-inside space-y-1.5 text-base text-black/90 mt-1.5 print:text-[10px] print:leading-snug">
-                  <li>Assisted customers with product selection and inquiries</li>
-                  <li>Maintained an organized inventory and displayed products attractively</li>
-                  <li>Collaborated with team members to achieve sales targets</li>
-                </ul>
-              </TimelineItem>
+              {experiences.map((experience, index) => (
+                <TimelineItem 
+                  key={index}
+                  title={experience.title} 
+                  subtitle={experience.company}
+                  period={experience.period}
+                  isLast={index === experiences.length - 1}
+                  logo={experience.logo}
+                >
+                  {experience.responsibilities && (
+                    <ul className="list-disc list-inside space-y-1.5 text-base text-black/90 mt-1.5 print:text-[10px] print:leading-snug">
+                      {experience.responsibilities.map((responsibility, idx) => (
+                        <li key={idx}>{responsibility}</li>
+                      ))}
+                    </ul>
+                  )}
+                </TimelineItem>
+              ))}
             </ResumeSection>
 
             {/* --- Education Section --- */} 
@@ -400,7 +447,16 @@ export default function Resume() {
               "@type": "EducationalOrganization",
               "name": edu.institution
             })),
-            "knowsLanguage": languages.map(lang => lang.split(" ")[1])
+            "knowsLanguage": languages.map(lang => lang.split(" ")[1]),
+            "workExperience": experiences.map(exp => ({
+              "@type": "WorkExperience",
+              "jobTitle": exp.title,
+              "worksFor": {
+                "@type": "Organization",
+                "name": exp.company
+              },
+              "startDate": exp.period.split(" - ")[0]
+            }))
           })
         }}
       />
@@ -420,14 +476,15 @@ const ResumeSection = ({ icon: Icon, title, children }: { icon: React.ElementTyp
   </div>
 );
 
-// Timeline Item Component - Adjusted font sizes
-const TimelineItem = ({ title, subtitle, period, children, isLast = false, iconOverride: IconOverride }: {
+// Timeline Item Component - Adjusted font sizes and added logo
+const TimelineItem = ({ title, subtitle, period, children, isLast = false, iconOverride: IconOverride, logo }: {
   title: string;
   subtitle: string;
   period: string;
   children?: React.ReactNode;
   isLast?: boolean;
   iconOverride?: React.ElementType;
+  logo?: string;
 }) => (
   <div className={`relative pl-6 ${isLast ? '' : 'pb-6 print:pb-3'} print:pl-4`}>
     {/* Vertical line - Black */}
@@ -443,8 +500,23 @@ const TimelineItem = ({ title, subtitle, period, children, isLast = false, iconO
       {/* Increased period size */}
       <span className="text-sm text-black/70 mt-0.5 sm:mt-0 flex-shrink-0 sm:ml-2 print:text-[10px]">{period}</span>
     </div>
-    {/* Increased subtitle size */}
-    <p className="text-base font-medium text-black/90 mb-1.5 print:text-xs print:mb-0.5">{subtitle}</p>
+    
+    {/* Company with logo */}
+    <div className="flex items-center gap-2 mb-1.5">
+      {logo && (
+        <div className="relative w-6 h-6 overflow-hidden rounded-sm print:w-4 print:h-4">
+          <Image 
+            src={logo} 
+            alt={subtitle} 
+            width={24} 
+            height={24} 
+            className="object-contain"
+          />
+        </div>
+      )}
+      <p className="text-base font-medium text-black/90 print:text-xs print:mb-0.5">{subtitle}</p>
+    </div>
+    
     {children}
   </div>
 );

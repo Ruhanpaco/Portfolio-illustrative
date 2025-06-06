@@ -217,9 +217,19 @@ export default function Resume() {
 
   return (
     <main className="min-h-screen bg-white text-black pt-24 sm:pt-28 pb-16 px-4 print:pt-4 print:bg-white">
+      {/* Hidden description for SEO */}
+      <div className="sr-only">
+        <h2>Ruhan Pacolli - Full-Stack Developer Resume</h2>
+        <p>
+          Experienced Full-Stack Developer with expertise in React, Next.js, TypeScript and modern web technologies.
+          Based in Kosovo, I specialize in building responsive, high-performance web applications with 6+ years of industry experience.
+          View my professional skills, work experience, projects, and certifications.
+        </p>
+      </div>
+      
       <div className="max-w-6xl mx-auto">
         {/* Header Section - Minor size adjustments */}
-        <motion.div 
+        <motion.header 
           className="bg-white rounded-2xl p-6 sm:p-8 mb-10 sm:mb-12 border-2 border-black resume-header-card"
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -228,26 +238,28 @@ export default function Resume() {
           <div className="flex flex-col md:flex-row items-center gap-6 sm:gap-8">
             <div className="flex-1 text-center md:text-left">
               {/* Adjusted heading sizes */}
-              <h1 className="text-4xl sm:text-5xl font-bold text-black mb-1.5 sm:mb-2 print:text-3xl">Ruhan Pacolli</h1>
-              <p className="text-xl sm:text-2xl text-black/80 mb-4 sm:mb-5 print:text-lg">Full-Stack Developer</p>
+              <h1 className="text-4xl sm:text-5xl font-bold text-black mb-1.5 sm:mb-2 print:text-3xl" itemScope itemType="http://schema.org/Person">
+                <span itemProp="name">Ruhan Pacolli</span>
+              </h1>
+              <p className="text-xl sm:text-2xl text-black/80 mb-4 sm:mb-5 print:text-lg" itemProp="jobTitle">Full-Stack Developer</p>
               {/* Increased contact info size slightly */}
               <div className="flex flex-wrap items-center gap-x-4 gap-y-3 justify-center md:justify-start text-base text-black print:text-xs">
-                <a href="mailto:hi@ruhanpacolli.online" className="flex items-center gap-1.5 hover:opacity-70 transition-opacity">
+                <a href="mailto:hi@ruhanpacolli.online" className="flex items-center gap-1.5 hover:opacity-70 transition-opacity" itemProp="email">
                   <FaEnvelope /> hi@ruhanpacolli.online
                 </a>
-                <a href="https://github.com/Ruhanpaco" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:opacity-70 transition-opacity">
+                <a href="https://github.com/Ruhanpaco" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:opacity-70 transition-opacity" itemProp="sameAs">
                   <FaGithub /> GitHub
                 </a>
                 <a href="https://wa.link/tpbnvt" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:opacity-70 transition-opacity">
                   <FaWhatsapp /> WhatsApp
                 </a>
-                <span className="flex items-center gap-1.5">
-                  <FaMapMarkerAlt /> Kosovo
+                <span className="flex items-center gap-1.5" itemProp="address" itemScope itemType="http://schema.org/PostalAddress">
+                  <FaMapMarkerAlt /> <span itemProp="addressCountry">Kosovo</span>
                 </span>
-                 <span className="flex items-center gap-1.5 text-black">
-                    <FaClock /> {localTime} (CET)
-                 </span>
-                 <a 
+                <span className="flex items-center gap-1.5 text-black">
+                   <FaClock /> {localTime} (CET)
+                </span>
+                <a 
                   href="/assets/files/Ruhan_Pacolli_Resume.pdf"
                   download="Ruhan_Pacolli_Resume.pdf"
                   className="print-hidden flex items-center gap-1.5 px-3 py-1.5 bg-white border-2 border-black rounded-lg hover:bg-black hover:text-white transition-colors text-black text-sm font-medium"
@@ -258,7 +270,7 @@ export default function Resume() {
               </div>
             </div>
           </div>
-        </motion.div>
+        </motion.header>
 
         <div className="grid md:grid-cols-3 gap-x-10 lg:gap-x-16 resume-grid">
           {/* Left Column */} 
@@ -370,18 +382,32 @@ export default function Resume() {
                   <div 
                     key={index}
                     className="group block p-4 rounded-lg border border-black bg-white hover:bg-black/5 transition-all print:p-2 print:border-black"
+                    itemScope 
+                    itemType="http://schema.org/CreativeWork"
                   >
                     {/* Increased font sizes */}
-                    <h3 className="font-semibold text-base text-black mb-1 group-hover:opacity-70 transition-opacity print:text-xs print:font-medium">{project.name}</h3>
-                    <p className="text-sm text-black/80 leading-snug mb-2.5 print:text-[10px] print:leading-snug">{project.description}</p>
+                    <h3 
+                      className="font-semibold text-base text-black mb-1 group-hover:opacity-70 transition-opacity print:text-xs print:font-medium"
+                      itemProp="name"
+                    >
+                      {project.name}
+                    </h3>
+                    <p 
+                      className="text-sm text-black/80 leading-snug mb-2.5 print:text-[10px] print:leading-snug"
+                      itemProp="description"
+                    >
+                      {project.description}
+                    </p>
                     <a 
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="print-hidden text-sm font-medium text-black hover:underline flex items-center gap-1"
+                      itemProp="url"
                     >
                       <FaLink size={12}/> View Project
                     </a>
+                    <meta itemProp="creator" content="Ruhan Pacolli" />
                   </div>
                 ))} 
               </div>
@@ -418,15 +444,19 @@ export default function Resume() {
             "@type": "Person",
             "name": "Ruhan Pacolli",
             "jobTitle": "Full-Stack Developer",
+            "description": "Experienced Full-Stack Developer with 6+ years of experience building modern web applications using React, Next.js, TypeScript, and Node.js.",
+            "image": "https://ruhanpacolli.online/assets/img/profile.jpg",
             "address": {
               "@type": "PostalAddress",
-              "addressCountry": "Kosovo"
+              "addressCountry": "Kosovo",
+              "addressRegion": "Europe"
             },
             "email": "hi@ruhanpacolli.online",
             "url": "https://ruhanpacolli.online",
             "sameAs": [
               "https://github.com/Ruhanpaco",
-              "https://wa.link/tpbnvt"
+              "https://wa.link/tpbnvt",
+              "https://www.linkedin.com/in/ruhan-pacolli-a982a2364/"
             ],
             "hasCredential": certifications.map(cert => ({
               "@type": "EducationalOccupationalCredential",
@@ -441,21 +471,49 @@ export default function Resume() {
             "hasOccupation": {
               "@type": "Occupation",
               "name": "Full-Stack Developer",
-              "skills": skills.join(", ")
+              "skills": skills.join(", "),
+              "responsibilities": [
+                "Design and development of responsive web applications",
+                "Front-end development with React and Next.js",
+                "Back-end development with Node.js",
+                "Database design and management",
+                "API development and integration"
+              ],
+              "occupationLocation": {
+                "@type": "Place",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressCountry": "Kosovo"
+                }
+              }
             },
+            "knowsLanguage": languages.map(lang => lang.split(" ")[1]),
             "alumniOf": education.map(edu => ({
               "@type": "EducationalOrganization",
-              "name": edu.institution
+              "name": edu.institution,
+              "degree": edu.degree,
+              "startDate": edu.year.split(" - ")[0]
             })),
-            "knowsLanguage": languages.map(lang => lang.split(" ")[1]),
             "workExperience": experiences.map(exp => ({
               "@type": "WorkExperience",
               "jobTitle": exp.title,
               "worksFor": {
                 "@type": "Organization",
-                "name": exp.company
+                "name": exp.company,
+                "image": exp.logo
               },
-              "startDate": exp.period.split(" - ")[0]
+              "startDate": exp.period.split(" - ")[0],
+              "endDate": exp.period.split(" - ")[1] === "Present" ? null : exp.period.split(" - ")[1],
+              "description": exp.responsibilities ? exp.responsibilities.join(". ") : ""
+            })),
+            "makesOffer": projects.map(project => ({
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "CreativeWork",
+                "name": project.name,
+                "url": project.link,
+                "description": project.description
+              }
             }))
           })
         }}
@@ -468,12 +526,12 @@ export default function Resume() {
 
 // Section Component - Adjusted heading size
 const ResumeSection = ({ icon: Icon, title, children }: { icon: React.ElementType, title: string, children: React.ReactNode }) => (
-  <div className="bg-white rounded-xl p-5 sm:p-6 border-2 border-black resume-section print:border print:border-black print:rounded-lg print:p-3 print:shadow-none print:mb-4">
+  <section className="bg-white rounded-xl p-5 sm:p-6 border-2 border-black resume-section print:border print:border-black print:rounded-lg print:p-3 print:shadow-none print:mb-4">
     <h2 className="text-2xl font-bold text-black mb-4 flex items-center gap-2.5 print:text-lg print:mb-2">
       <Icon className="text-black print:text-base" /> {title}
     </h2>
     {children}
-  </div>
+  </section>
 );
 
 // Timeline Item Component - Adjusted font sizes and added logo
@@ -486,7 +544,7 @@ const TimelineItem = ({ title, subtitle, period, children, isLast = false, iconO
   iconOverride?: React.ElementType;
   logo?: string;
 }) => (
-  <div className={`relative pl-6 ${isLast ? '' : 'pb-6 print:pb-3'} print:pl-4`}>
+  <article className={`relative pl-6 ${isLast ? '' : 'pb-6 print:pb-3'} print:pl-4`}>
     {/* Vertical line - Black */}
     {!isLast && <div className="absolute left-[7px] top-[12px] h-full w-0.5 bg-black print:hidden"></div>}
     {/* Dot - Black with white border */}
@@ -518,5 +576,5 @@ const TimelineItem = ({ title, subtitle, period, children, isLast = false, iconO
     </div>
     
     {children}
-  </div>
+  </article>
 );

@@ -6,6 +6,7 @@ import Footer from "./components/footer";
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from '@vercel/analytics/next';
 import Script from 'next/script';
+import { Fira_Code } from 'next/font/google';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,6 +16,12 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const firaCode = Fira_Code({ 
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-fira-code',
 });
 
 export const metadata: Metadata = {
@@ -80,13 +87,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} ${firaCode.variable} antialiased`}>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
       </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className="font-sans">
         <Navbar />
         {children}
         <Footer />

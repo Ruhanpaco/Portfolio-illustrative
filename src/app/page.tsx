@@ -6,13 +6,14 @@ import Image from 'next/image'; // Import the Image component from Next.js
 import SocialMedia from './components/SocialMedia';
 import Skills from './components/Skills';
 import ByTheNumbers from './components/ByTheNumbers'; // Import the updated component
-import { FaGithub, FaExternalLinkAlt, FaLayerGroup, FaDesktop, FaServer, FaMobileAlt, FaLightbulb, FaCloudUploadAlt } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt, FaLayerGroup, FaDesktop, FaServer, FaMobileAlt, FaLightbulb, FaCloudUploadAlt, FaFileAlt, FaEnvelope } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
 import { SiAxios, SiMongodb, SiNextdotjs, SiNodedotjs, SiReact, SiTailwindcss, SiTypescript, SiCalendly } from 'react-icons/si';
 import { FiMapPin } from 'react-icons/fi';
 import { BiLogoPostgresql } from "react-icons/bi";
 import Script from 'next/script';
 import React from 'react';
+import Link from 'next/link';
 
 export default function Home() {
   // Sample projects data
@@ -114,28 +115,36 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="bg-white text-gray-800">
+    <main className="bg-white text-black">
       {/* Hero Section */}
       <section className="relative bg-white min-h-screen flex flex-col md:flex-row items-center justify-center px-4 sm:px-6 md:px-8 py-20 md:py-0">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000012_1px,transparent_1px),linear-gradient(to_bottom,#00000012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+        </div>
+        
         {/* Left Side (Text) */}
         <div className="flex flex-col items-start w-full md:w-1/2 max-w-xl space-y-6 md:space-y-8 mt-16 md:mt-0 z-10">
           <div className="flex flex-col space-y-2">
-            <motion.span 
-              className="text-sm md:text-base text-gray-600 font-medium tracking-wider"
+            <motion.div 
+              className="flex items-center space-x-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-sm border border-black/10"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <FiMapPin className="inline-block mr-2" />
-              Based in Kosovo
-            </motion.span>
+              <FiMapPin className="text-black" />
+              <span className="text-sm text-black font-medium">Based in Kosovo • {localTime}</span>
+            </motion.div>
+            
             <motion.h1 
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600" 
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold" 
               initial={{ opacity: 0, y: 50 }} 
               animate={{ opacity: 1, y: 0 }} 
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              Ruhan Pacolli
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-black via-black/80 to-black">
+                Ruhan Pacolli
+              </span>
             </motion.h1>
           </div>
 
@@ -145,35 +154,45 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <p className="text-lg sm:text-xl md:text-2xl font-light text-gray-700 leading-relaxed max-w-lg">
-              A passionate <span className="font-medium">Full Stack Developer</span> crafting beautiful, functional digital experiences that make a difference.
+            <p className="text-lg sm:text-xl md:text-2xl font-light text-black leading-relaxed max-w-lg">
+              A passionate <span className="font-semibold bg-gradient-to-r from-black to-black/80 bg-clip-text text-transparent">Full Stack Developer</span> crafting beautiful, functional digital experiences that make a difference.
             </p>
           </motion.div>
           
           {/* Quick Stats */}
           <motion.div 
-            className="flex gap-8 py-4"
+            className="grid grid-cols-3 gap-8 py-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
           >
-            <div className="flex flex-col">
-              <span className="text-2xl font-bold">6+</span>
-              <span className="text-sm text-gray-600">Years Experience</span>
+            <div className="flex flex-col items-center md:items-start p-4 rounded-xl bg-white/50 backdrop-blur-sm border border-black/10 shadow-sm">
+              <span className="text-3xl font-bold bg-gradient-to-r from-black to-black/80 bg-clip-text text-transparent">6+</span>
+              <span className="text-sm text-black">Years Experience</span>
             </div>
-            <div className="flex flex-col">
-              <span className="text-2xl font-bold">10+</span>
-              <span className="text-sm text-gray-600">Projects</span>
+            <div className="flex flex-col items-center md:items-start p-4 rounded-xl bg-white/50 backdrop-blur-sm border border-black/10 shadow-sm">
+              <span className="text-3xl font-bold bg-gradient-to-r from-black to-black/80 bg-clip-text text-transparent">10+</span>
+              <span className="text-sm text-black">Projects</span>
             </div>
-            <div className="flex flex-col">
-              <span className="text-2xl font-bold">100%</span>
-              <span className="text-sm text-gray-600">Client Satisfaction</span>
+            <div className="flex flex-col items-center md:items-start p-4 rounded-xl bg-white/50 backdrop-blur-sm border border-black/10 shadow-sm">
+              <span className="text-3xl font-bold bg-gradient-to-r from-black to-black/80 bg-clip-text text-transparent">100%</span>
+              <span className="text-sm text-black">Client Satisfaction</span>
             </div>
           </motion.div>
-          
-          {/* Social Media Component with enhanced spacing */}
+          {/* button to resume and to contact as QAB */}
+          <div className="flex gap-4">
+            <Link href="/resume" className="inline-flex items-center px-4 py-2 border-2 border-black rounded-lg text-black hover:bg-black hover:text-white transition-colors duration-200">
+              <FaFileAlt className="mr-2" />
+              Look at my Resume
+            </Link>
+            <Link href="/contact" className="inline-flex items-center px-4 py-2 border-2 border-black rounded-lg text-black hover:bg-black hover:text-white transition-colors duration-200">
+              <FaEnvelope className="mr-2" />
+              Get in Touch
+            </Link>
+          </div>
+          {/* Social Media Component */}
           <motion.div 
-            className="mt-8"
+            className="mt-8 w-full"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
@@ -182,24 +201,24 @@ export default function Home() {
           </motion.div>
         </div>
 
-        {/* Right Side (Image) with enhanced animation */}
+        {/* Right Side (Image) */}
         <motion.div 
-          className="w-full md:w-1/2 flex justify-center mt-12 md:mt-0"
+          className="w-full md:w-1/2 flex justify-center mt-12 md:mt-0 relative"
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.5 }}
         >
           <div className="relative w-[95%] sm:w-[90%] max-w-[800px]">
-            <Image 
-              src="/assets/img/image-profile.svg" 
-              alt="Ruhan Pacolli - Full Stack Developer"
-              width={800}
-              height={800}
-              className="w-full h-auto drop-shadow-2xl"
-              priority
-            />
-            {/* Decorative elements */}
-            <div className="absolute -z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-r from-gray-50 to-white rounded-full blur-3xl opacity-60"></div>
+            <div className="relative">
+              <Image 
+                src="/assets/img/image-profile.svg" 
+                alt="Ruhan Pacolli - Full Stack Developer"
+                width={800}
+                height={800}
+                className="w-full h-auto rounded-3xl border border-gray-100"
+                priority
+              />
+            </div>
           </div>
         </motion.div>
       </section>
@@ -306,113 +325,112 @@ export default function Home() {
       {/* Skills Section */}
       <section className="py-16 md:py-20 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-10 md:mb-16">My Skills</h2>
           <Skills />
         </div>
       </section>
 
       {/* Projects Section */}
-      <section className="py-16 md:py-20 bg-white">
-        <div className="container mx-auto px-4 max-w-7xl">
-          <div className="text-center mb-10 md:mb-16">
-            <motion.span 
-              className="text-sm md:text-base text-gray-600 font-medium tracking-wider uppercase mb-4 block"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-            >
-              Featured Work
-            </motion.span>
-            <motion.h2 
-              className="text-3xl sm:text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              My Projects
-            </motion.h2>
+      <section className="py-20 px-4 sm:px-6 md:px-8 bg-white" id="projects">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="max-w-6xl mx-auto"
+        >
+          <div className="flex flex-col items-center mb-20">
+            <h2 className="text-4xl font-bold text-black font-fira-code mb-4">Featured Projects</h2>
+            <div className="h-1 w-20 bg-black"></div>
           </div>
 
-          <div className="space-y-16 md:space-y-24">
+          <div className="space-y-32">
             {projects.map((project, index) => (
-              <motion.div 
-                key={project.id} 
-                className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-8 md:gap-12 lg:gap-16`}
-                initial={{ opacity: 0, y: 30 }} 
-                whileInView={{ opacity: 1, y: 0 }} 
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                viewport={{ once: true, amount: 0.2 }}
+              <motion.div
+                key={project.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="group"
               >
-                {/* Project Image with Hover Effect */} 
-                <div className="w-full md:w-1/2 group">
-                  <div className="relative aspect-video w-full overflow-hidden rounded-2xl shadow-lg transition-all duration-300 group-hover:shadow-2xl">
-                    <div className="absolute inset-0 bg-black/5 group-hover:bg-black/0 transition-colors duration-300 z-10"></div>
-                    <Image
-                      src={project.image}
-                      alt={`${project.title} screenshot`}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                    />
-                  </div>
-                </div>
-
-                {/* Project Content with Enhanced Layout */} 
-                <div className="w-full md:w-1/2 space-y-6">
-                  <div>
-                    <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">{project.title}</h3>
-                    <p className="text-base md:text-lg text-gray-600 leading-relaxed">{project.description}</p>
-                  </div>
-
-                  {/* Technology Badges with Enhanced Design */} 
-                  <div className="space-y-3">
-                    <span className="text-sm font-semibold text-gray-700">Technologies Used:</span>
-                    <div className="flex flex-wrap items-center gap-2">
-                      {project.technologies.map((tech, techIndex) => (
-                        <div
-                          key={techIndex}
-                          className="flex items-center bg-gray-50 border border-gray-200 px-3 py-1.5 rounded-full text-sm font-medium text-gray-700 hover:bg-gray-100 hover:border-gray-300 transition-all duration-300"
-                          title={tech.name}
-                        >
-                          {React.cloneElement(tech.icon, { className: "text-base mr-2" })}
-                          {tech.name}
-                        </div>
-                      ))}
+                <div className={`grid grid-cols-1 lg:grid-cols-12 gap-12 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
+                  <div className={`lg:col-span-7 ${index % 2 === 1 ? 'lg:order-2' : 'lg:order-1'}`}>
+                    <div className="relative aspect-[16/9] overflow-hidden group-hover:shadow-xl transition-shadow duration-300">
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        loading="lazy"
+                        quality={90}
+                      />
                     </div>
                   </div>
-
-                  {/* Project Links with Enhanced Buttons */} 
-                  <div className="flex flex-wrap gap-4 pt-2">
-                    {project.github && (
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center px-6 py-2.5 bg-black text-white rounded-lg hover:bg-gray-800 transition-all duration-300 text-sm font-medium group"
-                      >
-                        <FaGithub className="mr-2 text-lg transition-transform duration-300 group-hover:scale-110" />
-                        View Source
-                      </a>
-                    )}
-                    {(project.liveDemo || project.Live) && (
-                      <a
-                        href={project.liveDemo || project.Live}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center px-6 py-2.5 bg-white border-2 border-black text-black rounded-lg hover:bg-gray-50 transition-all duration-300 text-sm font-medium group"
-                      >
-                        <FaExternalLinkAlt className="mr-2 text-sm transition-transform duration-300 group-hover:scale-110" />
-                        Live Preview
-                      </a>
-                    )}
+                  
+                  <div className={`lg:col-span-5 ${index % 2 === 1 ? 'lg:order-1' : 'lg:order-2'}`}>
+                    <div className="space-y-6">
+                      <h3 className="text-3xl font-bold text-black font-fira-code">{project.title}</h3>
+                      <p className="text-black text-lg">
+                        {project.description.length > 180 
+                          ? `${project.description.substring(0, 180)}...` 
+                          : project.description}
+                      </p>
+                      
+                      <div className="flex flex-wrap gap-2 pt-2">
+                        {project.technologies.map((tech, techIndex) => (
+                          <div
+                            key={techIndex}
+                            className="flex items-center bg-white px-3 py-1.5 rounded-md text-xs border border-black"
+                          >
+                            {tech.icon}
+                            <span className="ml-1.5 text-black">{tech.name}</span>
+                          </div>
+                        ))}
+                      </div>
+                    
+                      <div className="flex gap-6 pt-4">
+                        {project.github && (
+                          <a
+                            href={project.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center text-black hover:text-black/70 transition-colors group-hover:underline"
+                          >
+                            <FaGithub className="mr-2 text-xl" />
+                            View Code
+                          </a>
+                        )}
+                        {project.liveDemo && (
+                          <a
+                            href={project.liveDemo}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center text-black hover:text-black/70 transition-colors group-hover:underline"
+                          >
+                            <FaExternalLinkAlt className="mr-2 text-xl" />
+                            Live Demo
+                          </a>
+                        )}
+                        {project.Live && (
+                          <a
+                            href={project.Live}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center text-black hover:text-black/70 transition-colors group-hover:underline"
+                          >
+                            <FaExternalLinkAlt className="mr-2 text-xl" />
+                            Live Demo
+                          </a>
+                        )}
+                      </div>
+                    </div>
                   </div>
                 </div>
               </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* Services Section with Enhanced Design */}

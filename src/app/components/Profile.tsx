@@ -6,7 +6,7 @@ import Image from 'next/image';
 export default function Profile() {
   return (
     <motion.div 
-      className="max-w-4xl mx-auto p-8 bg-white rounded-2xl shadow-xl border border-gray-100"
+      className="max-w-4xl mx-auto p-8"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
@@ -39,7 +39,7 @@ export default function Profile() {
             Ruhan Pacolli
           </motion.h1>
           <motion.h2 
-            className="text-xl text-gray-600 mb-4"
+            className="text-xl text-black mb-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
@@ -47,7 +47,7 @@ export default function Profile() {
             Full-Stack Developer
           </motion.h2>
           <motion.p 
-            className="text-gray-600 mb-6 leading-relaxed"
+            className="text-black mb-6 leading-relaxed"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
@@ -64,7 +64,7 @@ export default function Profile() {
           >
             <a
               href="mailto:hi@ruhanpacolli.online"
-              className="flex items-center gap-2 text-gray-600 hover:text-black transition-colors"
+              className="flex items-center gap-2 text-black hover:text-black/70 transition-colors"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
@@ -72,8 +72,8 @@ export default function Profile() {
               hi@ruhanpacolli.online
             </a>
             <a
-              href="https://github.com/YourGithubUsername" // Replace with your GitHub username
-              className="flex items-center gap-2 text-gray-600 hover:text-black transition-colors"
+              href="https://github.com/Ruhanpaco"
+              className="flex items-center gap-2 text-black hover:text-black/70 transition-colors"
               target="_blank"
               rel="noopener noreferrer"
             >

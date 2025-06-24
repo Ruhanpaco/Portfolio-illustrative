@@ -2,61 +2,59 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-
 import {
-  FaNodeJs,
   FaReact,
+  FaNodeJs,
   FaHtml5,
   FaCss3Alt,
-  FaTrello,
   FaJsSquare,
+  FaSwift,
   FaPhp,
+  FaGit,
   FaNpm,
   FaCpanel,
+  FaTrello,
   FaDiscord,
-  FaSwift,
   FaVuejs,
-  FaGit,
-  FaDatabase,
   FaSlack,
 } from "react-icons/fa";
 import {
   SiNextdotjs,
   SiTailwindcss,
   SiBootstrap,
-  SiTypescript,
   SiSass,
-  SiVercel,
-  SiGithub,
-  SiPostman,
-  SiCloudflare,
-  SiStripe,
-  SiFilezilla,
-  SiShopify,
-  SiFirebase,
-  SiXcode,
   SiExpo,
-  SiGooglecloud,
-  SiOpenai,
   SiReactrouter,
   SiGraphql,
+  SiVite,
+  SiTypescript,
+  SiFirebase,
+  SiSupabase,
+  SiPrisma,
+  SiGithub,
+  SiVercel,
+  SiCloudflare,
+  SiXcode,
+  SiJira,
+  SiGooglecloud,
+  SiOpenai,
+  SiPostman,
+  SiStripe,
+  SiShopify,
+  SiFilezilla,
   SiFigma,
   SiCanva,
-  SiPrisma,
-  SiLua,
-  SiVite,
-  SiSqlite,
-  SiSupabase,
-  SiJira,
   SiNotion,
   SiTwilio,
   SiAuth0,
+  SiLua,
+  SiSqlite,
 } from "react-icons/si";
-import { VscVscode } from "react-icons/vsc";
-import { BiLogoPostgresql } from "react-icons/bi";
 import { DiMysql } from "react-icons/di";
-import { FcGoogle } from "react-icons/fc";
+import { BiLogoPostgresql } from "react-icons/bi";
+import { VscVscode } from "react-icons/vsc";
 import { IoTerminal } from "react-icons/io5";
+import { FcGoogle } from "react-icons/fc";
 
 type Section = "front-end" | "back-end" | "devops" | "services-tools";
 
@@ -96,7 +94,6 @@ export default function TechStack() {
       { name: "MySQL", icon: <DiMysql className="text-blue-600 text-4xl" /> },
       { name: "PostgreSQL", icon: <BiLogoPostgresql className="text-blue-600 text-4xl" /> },
       { name: "Firebase", icon: <SiFirebase className="text-yellow-500 text-4xl" /> },
-      { name: "Neon DB", icon: <FaDatabase className="text-green-400 text-4xl" /> },
       { name: "SQLite", icon: <SiSqlite className="text-blue-300 text-4xl" /> },
       { name: "Supabase", icon: <SiSupabase className="text-green-600 text-4xl" /> },
       { name: "Prisma", icon: <SiPrisma className="text-teal-500 text-4xl" /> },
@@ -108,9 +105,9 @@ export default function TechStack() {
       { name: "GitHub", icon: <SiGithub className="text-black text-4xl" /> },
       { name: "Vercel", icon: <SiVercel className="text-black text-4xl" /> },
       { name: "Cloudflare", icon: <SiCloudflare className="text-orange-600 text-4xl" /> },
-      { name: "Visual Studio Code", icon: <VscVscode className="text-blue-700 text-4xl" /> },
+      { name: "VS Code", icon: <VscVscode className="text-blue-700 text-4xl" /> },
       { name: "Xcode", icon: <SiXcode className="text-blue-500 text-4xl" /> },
-      { name: "CLI & Terminal", icon: <IoTerminal className="text-black text-4xl" /> },
+      { name: "Terminal", icon: <IoTerminal className="text-black text-4xl" /> },
       { name: "NPM", icon: <FaNpm className="text-red-500 text-4xl" /> },
       { name: "Cpanel", icon: <FaCpanel className="text-orange-600 text-4xl" /> },
       { name: "Trello", icon: <FaTrello className="text-blue-600 text-4xl" /> },
@@ -135,44 +132,76 @@ export default function TechStack() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center p-4 bg-white">
-      {/* Navigation Buttons */}
-      <div className="flex flex-wrap justify-center gap-4 mb-8">
-        {navItems.map((item) => (
-          <motion.button
-            key={item.id}
-            onClick={() => setActiveSection(item.id as Section)}
-            className={`px-6 py-3 text-sm font-semibold rounded-full border-2 transition-all ${
-              activeSection === item.id
-                ? "bg-black text-white border-black"
-                : "bg-white text-black border-gray-300 hover:bg-gray-100 hover:border-gray-400"
-            }`}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            viewport={{ once: true }}
-          >
-            {item.title}
-          </motion.button>
-        ))}
-      </div>
+    <section className="py-20 px-4 sm:px-6 md:px-8 bg-white">
+      <div className="max-w-7xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 bg-clip-text text-transparent">
+            Technical Skills
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Technologies and tools I work with
+          </p>
+        </motion.div>
 
-      {/* Content Section */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 w-full max-w-6xl">
-        {technologies[activeSection].map((tech) => (
-          <motion.div
-            key={tech.name}
-            className="flex flex-col items-center justify-center p-6 bg-white border border-gray-200 rounded-lg hover:shadow-xl hover:border-black transition-all transform hover:scale-105"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            viewport={{ once: true }}
-          >
-            <div className="text-4xl mb-4">{tech.icon}</div>
-            <span className="text-sm font-semibold text-center">{tech.name}</span>
-          </motion.div>
-        ))}
+        {/* Navigation Buttons */}
+        <div className="flex flex-wrap justify-center gap-4 mb-12">
+          {navItems.map((item) => (
+            <motion.button
+              key={item.id}
+              onClick={() => setActiveSection(item.id as Section)}
+              className={`px-6 py-2.5 text-sm font-medium rounded-full transition-all ${
+                activeSection === item.id
+                  ? "bg-gray-900 text-white"
+                  : "bg-gray-50 text-gray-700 hover:bg-gray-100"
+              }`}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+            >
+              {item.title}
+            </motion.button>
+          ))}
+        </div>
+
+        {/* Content Section */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+          {technologies[activeSection].map((tech, index) => (
+            <motion.div
+              key={tech.name}
+              className="group flex flex-col items-center justify-center p-6 bg-white rounded-xl border border-gray-100 relative overflow-hidden transition-all duration-300"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+            >
+              {/* Background overlay with fade animation */}
+              <div 
+                className="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-all duration-500 ease-in-out"
+                style={{
+                  transform: 'scale(1.5)',
+                  opacity: 0,
+                }}
+              />
+              
+              <div className="relative z-10 flex flex-col items-center justify-center text-center">
+                <div className="mb-4 transform group-hover:scale-110 transition-transform duration-300 flex items-center justify-center">
+                  {tech.icon}
+                </div>
+                <span className="text-sm font-medium text-center text-gray-700 group-hover:text-gray-900 transition-colors duration-300 font-fira-code">
+                  {tech.name}
+                </span>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 }

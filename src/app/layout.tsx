@@ -48,13 +48,19 @@ export const metadata: Metadata = {
         height: 630,
         alt: "Ruhan Pacolli - Full-Stack Developer",
       },
+      {
+        url: '/assets/img/banner.png',
+        width: 1200,
+        height: 630,
+        alt: 'Portfolio Banner',
+      },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Ruhan Pacolli | Full-Stack Developer",
     description: "Professional web developer specializing in React.js, Next.js, and modern UI/UX design.",
-    images: ["https://ruhanpacolli.online/assets/img/profile.jpg"],
+    images: ["https://ruhanpacolli.online/assets/img/profile.jpg", "/assets/img/banner.png"],
   },
   robots: {
     index: true,

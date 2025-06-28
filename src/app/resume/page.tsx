@@ -7,16 +7,10 @@ import {
   Github,
   FileText,
   MapPin,
-  Code,
-  GraduationCap,
-  Award,
-  Briefcase,
   MessageCircle,
-  Globe,
   ExternalLink,
   Download,
   Clock,
-  Volleyball,
   ChevronRight
 } from 'lucide-react';
 import Script from 'next/script';

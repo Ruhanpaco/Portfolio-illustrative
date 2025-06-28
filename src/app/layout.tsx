@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://ruhanpacolli.online/assets/img/profile.jpg",
+        url: "https://ruhanpacolli.online/assets/img/banner.png",
         width: 1200,
         height: 630,
         alt: "Ruhan Pacolli - Full-Stack Developer",
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Ruhan Pacolli | Full-Stack Developer",
     description: "Professional web developer specializing in React.js, Next.js, and modern UI/UX design.",
-    images: ["https://ruhanpacolli.online/assets/img/profile.jpg", "/assets/img/banner.png"],
+    images: ["https://ruhanpacolli.online/assets/img/banner.png", "/assets/img/banner.png"],
   },
   robots: {
     index: true,
@@ -74,7 +74,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: 'your-google-verification-code', // Replace with your actual verification code
+    google: '5x5a-oTRBgE_e6n8pBjzb99kCyoYKnIgtf-SZRSFB1o',
   },
   authors: [{ name: 'Ruhan Pacolli', url: 'https://ruhanpacolli.online' }],
   creator: 'Ruhan Pacolli',
@@ -114,7 +114,7 @@ export default function RootLayout({
               "@type": "Person",
               "name": "Ruhan Pacolli",
               "url": "https://ruhanpacolli.online",
-              "image": "https://ruhanpacolli.online/assets/img/profile.jpg",
+              "image": "https://ruhanpacolli.online/assets/img/banner.png",
               "jobTitle": "Full-Stack Developer",
               "worksFor": {
                 "@type": "Organization",

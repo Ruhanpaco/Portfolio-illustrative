@@ -7,9 +7,11 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   asChild?: boolean;
 }
 
-function isAnchorProps(props: any): props is React.AnchorHTMLAttributes<HTMLAnchorElement> {
+function isAnchorProps(props: unknown): props is React.AnchorHTMLAttributes<HTMLAnchorElement> {
+  if (typeof props !== 'object' || props === null) return false;
+  const maybe = props as Record<string, unknown>;
   return (
-    typeof props.href === 'string' || typeof props.target === 'string' || typeof props.rel === 'string'
+    typeof maybe.href === 'string' || typeof maybe.target === 'string' || typeof maybe.rel === 'string'
   );
 }
 

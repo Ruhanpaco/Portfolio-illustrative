@@ -114,6 +114,12 @@ const extracurricular = [
     description: 'Contributing to the tech community by organizing events including "Build with AI", helping with check-ins, and collecting feedback from attendees. Helping to foster a vibrant tech ecosystem in Kosovo through community engagement and technical mentorship.'
   },
   {
+    role: 'Volunteer',
+    organization: 'Kosovo Makers - Arena Robobasket Super Finale',
+    period: '2025',
+    description: 'Volunteered at the Arena Robobasket "Super Finale" with Kosovo Makers, a national robotics event with over 3500+ students from schools across Kosovo. My role was to help monitor and ensure fair play by checking for any communication between students and their instructors during the challenges, supervising both students and their organization/school representatives, and ensuring everyone followed the rules. Successfully managed situations with uncooperative individuals and received a volunteering certification for my contribution.'
+  },
+  {
     role: 'Volleyball Player',
     organization: 'KV Prishtina Junior',
     period: '2024 - Present',

@@ -110,7 +110,7 @@ const extracurricular = [
   {
     role: 'Volunteer',
     organization: 'Google Developer Group Prishtina',
-    period: '2024 - Present',
+    period: '2025 - Present',
     description: 'Contributing to the tech community by organizing events including "Build with AI", helping with check-ins, and collecting feedback from attendees. Helping to foster a vibrant tech ecosystem in Kosovo through community engagement and technical mentorship.'
   },
   {

@@ -138,7 +138,7 @@ const experiences = [
     title: "Founder",
     company: "EliteDev Agency",
     logo: "/assets/img/elitedev.png",
-    period: "January 2023 - Present",
+    period: "June 2025 - Present",
     responsibilities: [
       "Leading web and mobile application development projects",
       "Managing client relationships and business development",
@@ -150,7 +150,7 @@ const experiences = [
     title: "Junior Software Developer Intern",
     company: "Pioneering People",
     logo: "/assets/img/peoneer.png",
-    period: "July 2024 - Present",
+    period: "June 2025 - Present",
     responsibilities: [
       "Feature research and planning",
       "Prototyping using current tech stack (Laravel 11, MongoDB and AWS)",
